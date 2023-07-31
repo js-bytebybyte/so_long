@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 12:28:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/07/31 12:49:22 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/07/31 13:39:24 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,20 @@ int	main(void)
 	char	*filename = "minion.xpm";
 	int		img_width;
 	int		img_height;
-	int		check;
+	int		x;
+	//int		y;
 	
 	mlx_ptr = mlx_init();
 	win_ptr = mlx_new_window(mlx_ptr, 1920, 1080, "Reading image");
 	img = mlx_xpm_file_to_image(mlx_ptr, filename, &img_width, &img_height);
-	check = mlx_put_image_to_window(mlx_ptr, win_ptr, img, 0, 0);
+	
+	x = 0;
+	//y = 0;
+	while (x < 100)
+	{
+		mlx_put_image_to_window(mlx_ptr, win_ptr, img, x, 0);
+		x = x + 5;
+	}	
 	mlx_loop(mlx_ptr);	
 	return (0);
 }

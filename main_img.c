@@ -6,12 +6,12 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:03:28 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/07/31 12:08:14 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/07/31 12:12:48 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
-
+#include <stdio.h>
 /*
 mlx_image creates a new image in memory
 return: void pointer id needed to manipulate the image later
@@ -76,12 +76,18 @@ int	main(void)
 	// the bytes are not aligned
 	// line_length differs from the actual window width
 	// we need to therefore always calculate the memory offset using the line length set by the above function
+	// print yellow square
 	y = 50;
 	while (y < 100)
 		my_mlx_pixel_put(&img, 50, y++, 0x00FFFF00);
 	x = 50;
 	while (x < 100)
 		my_mlx_pixel_put(&img, x++, y, 0x00FFFF00);
+	while (y > 50)
+		my_mlx_pixel_put(&img, x, y--, 0x00FFFF00);
+	while (x > 50)
+		my_mlx_pixel_put(&img, x--, y, 0x00FFFF00);
+	printf("%d %d\n", x, y);
 	mlx_put_image_to_window(mlx_ptr, win_ptr, img.img, 0, 0);
 	mlx_loop(mlx_ptr);
 	return (0);
