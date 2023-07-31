@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 12:53:27 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/07/28 16:12:07 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/07/31 11:58:02 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(void)
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_data	*img;
+	t_data	img;
 	
 	// initialize the connection between my software and the display
 	// mlx is the connection pointer
