@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 15:22:41 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/07/31 15:59:52 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/01 10:21:20 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	main(void)
 	
 	// 2 = keydown; (1L<<0) KeyPressMask; close is the function you created 
 	// when the event has taken place, this function will do something
+	// func_ptr is a pointer to a function that returns an int and that takes undefined parameters. 
+	// Beware, (*func_ptr)() is not the same as (*func_ptr)(void): the last means NO argument while the first means "any set of arguments".
 	mlx_hook(vars.win, 2, 1L<<0, close, &vars);
 	mlx_loop(vars.mlx);
 }
