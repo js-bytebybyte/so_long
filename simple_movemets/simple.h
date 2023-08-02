@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:00:18 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/02 13:23:47 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/02 13:37:07 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@
 #endif
 
 
-#define LEFT_KEY 123
-#define RIGHT_KEY 124
-#define UP_KEY	126
-#define	DOWN_KEY 125		
+#define LEFT_KEY 0
+#define RIGHT_KEY 2
+#define UP_KEY	13
+#define	DOWN_KEY 1
+#define ESC_KEY	53
 
 /* ------------------STRUCTURES ---------------------------------*/
 
