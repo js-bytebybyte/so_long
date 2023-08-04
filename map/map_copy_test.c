@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checker.c                                      :+:      :+:    :+:   */
+/*   map_copy_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:03:53 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/03 17:10:00 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/04 16:08:58 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 1. The map must contain: 1 start 1 exit, at least 1 collectible > 1 
 2. The map must be rectangular
 3. The map must be closed/surrended by walls
-4. Check if there is a valid path
+4. check  if there is a valid path
 5. You must parse through any kind of map
 6. If any misconfiguration is encountered, program must exit in a clean way 
 and return 'Error\n' with explicit error message of your choice
@@ -39,71 +39,72 @@ and return 'Error\n' with explicit error message of your choice
 #include <stdlib.h>
 #include <unistd.h>
 
-#define MAX_MAP_ROWS 100
-#define MAX_MAP_COLS 100
+int	line_count(char	*file)
+{
+	int		fd;
+	int		lines;
+	char	c;
+
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (0);
+	lines = 0;
+	// issue: why is it printing the \0 char twice???
+	while (read(fd, &c, 1) == 1)
+	{
+		printf("%c", c);
+		if (c == '\n')// c == '\0')
+			lines++;
+	}
+	printf("\nlines: %d\n", lines);
+	return (lines);
+}
+
 
 int	main(void)
 {
-	char	**map;
+	//char	**map;
+	char	*filename = "empty.txt";
 	int		rows;
-	int		columns;
-	int		rows_counter;
-	int		col_counter;
-	int		fd;
-	char	c;
 
-	// open the file
-	fd = open("map.txt", O_RDONLY);
-	if (fd < 0)
+	// 1 - count the number of line in the map
+	rows = line_count(filename);
+	if (rows < 2)
 		return (-1);
-		
-	// read the file and keep track of the number of lines in the file
-	rows_counter = 0;
-	while (read(fd, &c, 1) == 1)
-	{	
-		//printf("%c\n", c);
-		if (c == '\n')
-			rows_counter++;
-	}
-	rows_counter++; // the last line of the file end with null terminator and not with \n
-	fd = open("map.txt", O_RDONLY);
-	col_counter = 0;
-	while (c != '\n')
-	{
-		read(fd, &c, 1);
-		col_counter++;
-		printf("%c\t", c);
-	}
-	printf("The number of lines in the file: %d\nThe number of columns: %d\n", rows_counter, col_counter);
+	printf("rows: %d\n", rows);
+
 	
-	// allocate memory to create the 2D array called map;
-	// the number of lines = the size of the first array or the number of rows
+	// allocate memory to create the 2D array called map that will contain the map of the game;
+	// the number of lines = the number of pointers that needs to be stored in map
 	// +1 for the null terminator
-	map = (char **)malloc((rows_counter + 1) * sizeof(char *)); 
+	
+	map = (char **)malloc((rows + 1) * sizeof(char *)); 
 	if (!map)
 		return (-1);
-	map[rows] = (char *)malloc((col_counter + 1) * sizeof(char));
-	if (!map[rows])
-		return (-1);
-	printf("Ok till here\n");
 	
-	// fill the 2D array = map
-	fd = open("map.txt", O_RDONLY);
-	rows = 0;
-	columns = 0;
-	while (rows_counter >= 0)
-	{
-		read(fd, &c, 1);
-		printf("Ok till here\n");
-		map[rows][columns] = c;
-		printf("Ok till here\n");
-		if (c == '\n')
-		{
-			rows++;
-			columns = 0;
-			rows_counter--;
-		}	
-		columns++;
-	}
+	// // fill the 2D array = map
+	// fd = open("check.txt", O_RDONLY);
+	// i = 0;
+	// while (i < rows)
+	// {
+	// 	map[i] = malloc((col_counter) * sizeof(char));
+	// 	if (!map[i])
+	// 		return (-1);
+	// 	j = 0;
+	// 	while (j < col_counter) // 14
+	// 	{
+	// 		read(fd, &c, 1);
+	// 		map[i][j] = c;
+	// 		j++;
+	// 	}
+	// 	map[i][j] = '\0';
+	// 	j++;
+	// }
+	// map[i] = 0;
+
+	// int i = 0;
+	// while (map[i] != NULL)
+	// 	printf("%s", map[i++]);
+		
 	return (0);
 }
