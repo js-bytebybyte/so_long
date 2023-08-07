@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/07 15:17:13 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:38:54 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	count_columns(char *map_row)
 // so that I can check for errors later
 // line has the mem address of the first line of the map txt file
 // why is the return type a static int?
+
 int	allocate_rows(t_map *game, char *line)
 {
 	char	**temp;
@@ -48,6 +49,7 @@ int	allocate_rows(t_map *game, char *line)
 	if (!line)
 		return (0);
 	printf("line address: %p\n", line);
+	
 	// each \n in txt is represented by the game.rows var
 	game->rows++;
 	
@@ -55,7 +57,9 @@ int	allocate_rows(t_map *game, char *line)
 	temp = (char **)malloc((game->rows + 1) * sizeof(char *));
 	if (!temp)
 		return (0);
-	printf("Temp address: %p\n", temp);
+	printf("Temp address alloc: %p\n", temp);
+	printf("Map address before: %p\n", game->map);
+
 	// add null terminator to last block of mem
 	temp[game->rows] = NULL;
 
@@ -67,8 +71,9 @@ int	allocate_rows(t_map *game, char *line)
 		i++;
 	} 
 	temp[i] = line;
-	printf("Temp[i] address: %p\n", temp[i]);
-	// check if game->map already had an address;
+	printf("Temp[%i] address: %p\n", i, temp[i]);
+	
+	// check if game->map already had an address assigned;
 	// if not --> free so that the newly allocated address can be assigned
 	if (game->map)
 	{
@@ -76,7 +81,7 @@ int	allocate_rows(t_map *game, char *line)
 		free(game->map);
 	}
 	game->map = temp;
-	printf("Game map address: %p\n", game);
+	printf("Game map address: %p\n", game->map);
 	return (1);
 }
 
