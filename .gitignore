@@ -54,3 +54,6 @@ dkms.conf
 # extras 
 .DS_store
 .vscode/
+
+# minilibX
+minilibX/

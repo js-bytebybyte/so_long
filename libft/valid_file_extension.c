@@ -6,13 +6,13 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 10:39:39 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 10:58:31 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/08 11:01:07 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h" // needs to be adjusted??
 
-int	ft_strend_chr(char *file_name, char	*file_extension)
+int	valid_file_extension(char *file_name, char	*file_extension)
 {
 	int	i;
 	int	j;
