@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 11:56:43 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/08 15:57:53 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ typedef struct s_map
 	int		fd;
 	int		rows;
 	int		columns;
+	int 	player; // to count the number of players in the game - should only be one
+	int 	exit; // to count the number of exits in the game - should only be one
+	int 	collectibles; // the count the number of collectibles - should be at least one
 }	t_map;
 
 int ft_wall_check(t_map *game);
+int ft_char_check(t_map *game);
 
 #endif	
