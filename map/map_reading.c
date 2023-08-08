@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 12:00:29 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:55:17 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	allocate_rows(t_map *game, char *line)
 	// alocate memory for the rows in the map of the game
 	if (!line)
 		return (0);
-	printf("line address: %p\n", line);
 	
 	// each \n in txt is represented by the game.rows var
 	game->rows++;
@@ -57,9 +56,7 @@ int	allocate_rows(t_map *game, char *line)
 	temp = (char **)malloc((game->rows + 1) * sizeof(char *));
 	if (!temp)
 		return (0);
-	printf("Temp address alloc: %p\n", temp);
-	printf("Map address before: %p\n", game->map);
-
+		
 	// add null terminator to last block of mem
 	temp[game->rows] = NULL;
 
@@ -71,17 +68,12 @@ int	allocate_rows(t_map *game, char *line)
 		i++;
 	} 
 	temp[i] = line;
-	printf("Temp[%i] address: %p\n", i, temp[i]);
 	
 	// check if game->map already had an address assigned;
 	// if not --> free so that the newly allocated address can be assigned
 	if (game->map)
-	{
-		printf("freed\n");
 		free(game->map);
-	}
 	game->map = temp;
-	printf("Game map address: %p\n", game->map);
 	return (1);
 }
 
@@ -119,23 +111,7 @@ int	main(int argc, char **argv)
 	printf("number of columns in the map: %d\n", game.columns);
 
 	printf("Valid map: %d\n", ft_wall_check(&game));
-	
+
+	printf("The char check: %d\n", ft_char_check(&game));
 	return (1); 
 }
-
-
-
-// i = 0;
-// while (game.map[i])
-// {
-// 	j = 0;
-// 	while (game.map[i][j])
-// 	{
-// 		printf("%c\n", game.map[i][j]);
-// 		j++;
-// 	}
-// 	i++;
-// }
-
-// retrieve the length = number of columns of the map
-// count_columns(map[i]);
