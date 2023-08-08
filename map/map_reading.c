@@ -6,11 +6,11 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/07 15:38:54 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/08 12:00:29 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../header/so_long.h"
 
 // return type static int of gewone int???
 
@@ -118,6 +118,8 @@ int	main(int argc, char **argv)
 	game.columns = count_columns(game.map[0]);
 	printf("number of columns in the map: %d\n", game.columns);
 
+	printf("Valid map: %d\n", ft_wall_check(&game));
+	
 	return (1); 
 }
 
