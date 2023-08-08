@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strend_chr.c                                    :+:      :+:    :+:   */
+/*   valid_file_extension.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 10:39:39 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 11:01:07 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/08 14:38:51 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" // needs to be adjusted??
+#include "../header/so_long.h"// needs to be adjusted??
 
 int	valid_file_extension(char *file_name, char	*file_extension)
 {
