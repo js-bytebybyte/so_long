@@ -6,34 +6,36 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 16:48:42 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:13:24 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-	/* functions to check the conditions to be met for a valid map */
+/* functions to check the conditions to be met for a valid map */
 
 //1. check if file is valid
 
-/*int	valid_file(int argc, char *file)
+int	valid_file(int argc, char *file)
 {
 	// the number of arguments is 1
+	// printf("No arguments were passed.");
 	if (argc == 1)
-		printf("No arguments were passed.");
+		return (0);
 
 	// the number of arguments is higher than 2; so too many arguments
+	// printf("Please only provide 1 map file.");
 	if (argc > 2)
-		printf("Please only provide 1 map file.");
+		return (0);
 
 	// I need to check if the file has the rigth extension
-	if (!valid_file_extension(file, ".ber")
-		printf("The file doesn't have the right extension");
+	// printf("The file doesn't have the right extension");
+	if (valid_file_extension(file, ".ber") == 0)
+		return (0);
+	return (1);
+}
 
-	return (0);
-}*/
-
-// The map must be closed/surrounded by walls. If it’s not, the program must return
+// 2. The map must be closed/surrounded by walls. If it’s not, the program must return
 
 int ft_wall_check(t_map *game)
 {
@@ -67,14 +69,15 @@ int ft_wall_check(t_map *game)
 }
 
 /*
-The map can be composed of only these 5 characters:
+
+3. The map can be composed of only these 5 characters:
 0 for an empty space,
 1 for a wall,
 C for a collectible,
 E for a map exit,
 P for the player’s starting position.
 
-The map must contain 1 exit, at least 1 collectible, and 1 starting position to
+4. The map must contain 1 exit, at least 1 collectible, and 1 starting position to
 be valid.
 
 */

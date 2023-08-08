@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 16:55:17 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:12:53 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int	main(int argc, char **argv)
 	game.fd = open(argv[1], O_RDONLY);
 	if (game.fd < 0)
 		return (0); // later aanpassen?
+	printf("Args and file extension check: %d\n", valid_file(argc, argv[1]));
 	
 	// use gnl to count the number of \n in the map pointed by fd
 	// with each call of gnl, count the number of rows 
