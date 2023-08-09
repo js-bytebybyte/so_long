@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 17:13:24 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:09:13 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,41 @@ int	ft_char_check(t_map *game)
 		}
 		i++;
 	}
+	printf("player: %d,\nexit: %d,\ncollectibles: %d\n", game->player, game->exit, game->collectibles);
 	if (game->player > 1 || game->exit > 1 || game->collectibles < 1)
 		return (0);
 	return (1);
+}
+
+void	set_start_end_position(t_map *game)
+{
+	int x; // move along the columns
+	int	y; // move through the different rows
+
+	game->start_x = 0;
+	game->start_y = 0;
+	game->exit_x = 0;
+	game->exit_y = 0;
+	y = 0;
+	while (y < game->rows)
+	{
+		x = 0;
+		while (x < game->columns - 1)
+		{
+			if (game->map[y][x] == 'P')
+			{
+				game->start_x = x;
+				game->start_y = y;
+			}
+			if (game->map[y][x] == 'E')
+			{
+				game->exit_x = x;
+				game->exit_y = y;
+			}
+			x++;
+		}
+		y++;
+	}
+	printf("the start position: (%d, %d)\n", game->start_y, game->start_x);
+	printf("the exit position: (%d, %d)\n", game->exit_y, game->exit_x);
 }

@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 17:12:53 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:03:39 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,27 +48,28 @@ int	allocate_rows(t_map *game, char *line)
 	// alocate memory for the rows in the map of the game
 	if (!line)
 		return (0);
-	
+
 	// each \n in txt is represented by the game.rows var
 	game->rows++;
-	
+
 	// allocate mem for each \n from the txt file via tmp 
 	temp = (char **)malloc((game->rows + 1) * sizeof(char *));
 	if (!temp)
 		return (0);
-		
+
 	// add null terminator to last block of mem
 	temp[game->rows] = NULL;
-
+	
 	// copy first what has already been stored in map
 	i = 0;
+	
 	while (i < (game->rows - 1))
 	{
 		temp[i] = game->map[i];
 		i++;
 	} 
 	temp[i] = line;
-	
+
 	// check if game->map already had an address assigned;
 	// if not --> free so that the newly allocated address can be assigned
 	if (game->map)
@@ -83,16 +84,17 @@ int	main(int argc, char **argv)
 	t_map	game;
 	char	*line;
 
+	game.map = NULL;
 	// for testing purposes - will be deleted
 	if (argc > 2)
 		return (0);
-		
+	
 	// open the map pointed by argv
 	game.fd = open(argv[1], O_RDONLY);
 	if (game.fd < 0)
 		return (0); // later aanpassen?
 	printf("Args and file extension check: %d\n", valid_file(argc, argv[1]));
-	
+
 	// use gnl to count the number of \n in the map pointed by fd
 	// with each call of gnl, count the number of rows 
 	while (1)
@@ -114,5 +116,8 @@ int	main(int argc, char **argv)
 	printf("Valid map: %d\n", ft_wall_check(&game));
 
 	printf("The char check: %d\n", ft_char_check(&game));
-	return (1); 
+	
+	set_start_end_position(&game);
+	
+	return (0); 
 }
