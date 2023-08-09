@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/09 16:03:39 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:31:56 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 	t_map	game;
 	char	*line;
 
-	game.map = NULL;
+	game.map = NULL; // segfault issues if I don't add this...
 	// for testing purposes - will be deleted
 	if (argc > 2)
 		return (0);

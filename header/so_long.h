@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/09 15:49:32 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:40:38 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_map
 	int		start_y;
 	int		exit_x;
 	int		exit_y;
+	int		directions[4][2];
 }	t_map;
 
 int ft_wall_check(t_map *game);
