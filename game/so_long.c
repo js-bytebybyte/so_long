@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 17:20:06 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 22:59:59 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	// check if the file as argument is valid
 	check = valid_file(argc, argv[1]);
 	printf("Args and file extension check: %d\n", check);
-
+	printf("game->columns: %d\n", game.columns);
 	// read the map file + copy all the chars of the file in 2D array map
 	map_reading(&game, argv[1]);
 
@@ -52,8 +52,8 @@ int main(int argc, char **argv)
 
 	/* ---------------- hooks setup -------------------------*/
 
-	mlx_key_hook(game.win_ptr, *handle_input, &game);
-	mlx_loop_hook(game.mlx_ptr, *ft_update, &program);
+	// mlx_key_hook(game.win_ptr, *handle_input, &game);
+	// mlx_loop_hook(game.mlx_ptr, *ft_update, &program);
 
 	// keep the window opem
 	mlx_loop(game.mlx_ptr);

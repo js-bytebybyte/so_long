@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_reading.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 12:24:30 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 23:05:44 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int	allocate_rows(t_map *game, char *line)
 	// alocate memory for the rows in the map of the game
 	if (!line)
 		return (0);
-
+	
 	// each \n in txt is represented by the game.rows var
 	game->rows++;
-
+	
 	// allocate mem for each \n from the txt file via tmp 
 	temp = (char **)malloc((game->rows + 1) * sizeof(char *));
 	if (!temp)
@@ -59,13 +59,14 @@ int	allocate_rows(t_map *game, char *line)
 
 	// add null terminator to last block of mem
 	temp[game->rows] = NULL;
-	
+
 	// copy first what has already been stored in map
 	i = 0;
 	
 	while (i < (game->rows - 1))
 	{
 		temp[i] = game->map[i];
+		printf("OK\n");
 		i++;
 	} 
 	temp[i] = line;
@@ -86,6 +87,8 @@ int	map_reading(t_map *game, char *map_file)
 	game->fd = open(map_file, O_RDONLY);
 	if (game->fd < 0)
 		return (0); // later aanpassen?
+
+	game->rows = 0;
 	while (1)
 	{
 		line = get_next_line(game->fd);
@@ -99,6 +102,7 @@ int	map_reading(t_map *game, char *map_file)
 	close(game->fd);
 
 	// count the number of columns
+	game->columns = 0;
 	game->columns = count_columns(game->map[0]);
 	printf("number of columns in the map: %d\n", game->columns);
 	return (1);

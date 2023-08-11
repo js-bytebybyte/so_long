@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+         #
+#    By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 14:19:41 by jsteenpu          #+#    #+#              #
-#    Updated: 2023/08/11 15:12:50 by jsteenpu         ###   ########.fr        #
+#    Updated: 2023/08/12 00:20:55 by jolandestee      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = so_long.out
 # Compiler and flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LINKS = -lmlx -framework OpenGL -framework Appkit 
+LINKS = -Lmlx -lmlx -framework OpenGL -framework Appkitgi
 
 # Directories
 GAME_DIR = game

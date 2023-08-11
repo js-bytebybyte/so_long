@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 17:21:18 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 22:05:01 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../minilibx-linux/mlx.h"
+# include "../mlx/mlx.h"
 # include "get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
@@ -58,6 +58,6 @@ void set_start_and_exit(t_map *game);
 void init_game_images(t_map *game);
 void adding_in_graphics(t_map *game);
 
-int handle_input(int keycode, void *param);
+// int handle_input(int keycode, void *param);
 
 #endif	
