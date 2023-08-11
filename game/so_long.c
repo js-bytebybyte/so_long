@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 15:20:30 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 17:20:06 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ int main(int argc, char **argv)
 	// put image to window according to the char in 2D 'map' array 
 	adding_in_graphics(&game);
 
-	/* -------------- hooks setup -------------------------*/
+	/* ---------------- hooks setup -------------------------*/
 
-	// mlx_key_hook(program.win_ptr, *handle_input, &program);
-	// mlx_loop_hook(program.mlx_ptr, *ft_update, &program);
+	mlx_key_hook(game.win_ptr, *handle_input, &game);
+	mlx_loop_hook(game.mlx_ptr, *ft_update, &program);
 
 	// keep the window opem
 	mlx_loop(game.mlx_ptr);
