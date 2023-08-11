@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/09 16:49:08 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:33:57 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,28 @@
 /* functions to check the conditions to be met for a valid map */
 
 /* Initialize the data needed to check if the map is valid */
-t_map	ft_initialize_map_var(t_map *game)
-{
-	game->map = NULL;
-	game->fd = 0;
-	game->rows = 0;
-	game->columns = 0;
-	game->player = 0; 
-	game->exit = 0;	 
-	game->collectibles = 0; 
-	game->start_x = 0;
-	game->start_y = 0;
-	game->exit_x = 0;
-	game->exit_y = 0;
-	game->directions[4][2] = {
-		{1, 0}, // UP
-		{-1, 0}, // DOWN
-		{0, 1}, // RIGHT
-		{0, -1} // LEFT
-	};
-}
+// t_map	*ft_initialize_map_var(t_map *game)
+// {
+// 	game->map = NULL;
+// 	game->fd = 0;
+// 	game->rows = 0;
+// 	game->columns = 0;
+// 	game->player = 0; 
+// 	game->exit = 0;	 
+// 	game->collectibles = 0; 
+// 	game->start_x = 0;
+// 	game->start_y = 0;
+// 	game->exit_x = 0;
+// 	game->exit_y = 0;
+// 	// game->directions[4][2] = 
+// 	// {
+// 	// 	{1, 0}, // UP
+// 	// 	{-1, 0}, // DOWN
+// 	// 	{0, 1}, // RIGHT
+// 	// 	{0, -1} // LEFT
+// 	// };
+// 	return (game);
+// }
 
 //1. check if file is valid
 
@@ -136,15 +138,11 @@ int	ft_char_check(t_map *game)
 	return (1);
 }
 
-void	set_start_end_position(t_map *game)
+void	set_start_and_exit(t_map *game)
 {
 	int x; // move along the columns
 	int	y; // move through the different rows
 
-	game->start_x = 0;
-	game->start_y = 0;
-	game->exit_x = 0;
-	game->exit_y = 0;
 	y = 0;
 	while (y < game->rows)
 	{
@@ -169,7 +167,7 @@ void	set_start_end_position(t_map *game)
 	printf("the exit position: (%d, %d)\n", game->exit_y, game->exit_x);
 }
 
-int	ft_find_valid_path(t_map *game)
+/*int	ft_find_valid_path(t_map *game)
 {
 	int		new_x;
 	int		new_y;
@@ -214,4 +212,4 @@ int	ft_find_valid_path(t_map *game)
 		
 	}
 
-}
+} */

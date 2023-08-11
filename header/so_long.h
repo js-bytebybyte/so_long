@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/09 16:40:38 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:28:13 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int ft_wall_check(t_map *game);
 int ft_char_check(t_map *game);
 int valid_file(int argc, char *file);
 int valid_file_extension(char *file_name, char *file_extension);
-void set_start_end_position(t_map *game);
+
+void set_start_and_exit(t_map *game);
 
 #endif	

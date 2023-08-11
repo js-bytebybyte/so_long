@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/09 16:31:56 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:28:22 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,8 @@ int	main(int argc, char **argv)
 	printf("Valid map: %d\n", ft_wall_check(&game));
 
 	printf("The char check: %d\n", ft_char_check(&game));
-	
-	set_start_end_position(&game);
-	
-	return (0); 
+
+	set_start_and_exit(&game);
+
+	return (0);
 }
