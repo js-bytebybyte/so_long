@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 10:28:22 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:24:30 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,46 +78,28 @@ int	allocate_rows(t_map *game, char *line)
 	return (1);
 }
 
-// int	map_reading(char **argv)
-int	main(int argc, char **argv)
+int	map_reading(t_map *game, char *map_file)
 {
-	t_map	game;
 	char	*line;
-
-	game.map = NULL; // segfault issues if I don't add this...
-	// for testing purposes - will be deleted
-	if (argc > 2)
-		return (0);
 	
-	// open the map pointed by argv
-	game.fd = open(argv[1], O_RDONLY);
-	if (game.fd < 0)
+	game->map = NULL;
+	game->fd = open(map_file, O_RDONLY);
+	if (game->fd < 0)
 		return (0); // later aanpassen?
-	printf("Args and file extension check: %d\n", valid_file(argc, argv[1]));
-
-	// use gnl to count the number of \n in the map pointed by fd
-	// with each call of gnl, count the number of rows 
 	while (1)
 	{
-		line = get_next_line(game.fd);
+		line = get_next_line(game->fd);
 		if (!line)
 			break;
-		allocate_rows(&game, line);
+		allocate_rows(game, line);
 	}
-	printf("number of rows/lines in the map: %d\n", game.rows);
+	printf("number of rows/lines in the map: %d\n", game->rows);
 
 	// close the file
-	close(game.fd);
+	close(game->fd);
 
-	// count the number of 
-	game.columns = count_columns(game.map[0]);
-	printf("number of columns in the map: %d\n", game.columns);
-
-	printf("Valid map: %d\n", ft_wall_check(&game));
-
-	printf("The char check: %d\n", ft_char_check(&game));
-
-	set_start_and_exit(&game);
-
-	return (0);
+	// count the number of columns
+	game->columns = count_columns(game->map[0]);
+	printf("number of columns in the map: %d\n", game->columns);
+	return (1);
 }

@@ -6,37 +6,13 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 10:33:57 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:12:01 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
 /* functions to check the conditions to be met for a valid map */
-
-/* Initialize the data needed to check if the map is valid */
-// t_map	*ft_initialize_map_var(t_map *game)
-// {
-// 	game->map = NULL;
-// 	game->fd = 0;
-// 	game->rows = 0;
-// 	game->columns = 0;
-// 	game->player = 0; 
-// 	game->exit = 0;	 
-// 	game->collectibles = 0; 
-// 	game->start_x = 0;
-// 	game->start_y = 0;
-// 	game->exit_x = 0;
-// 	game->exit_y = 0;
-// 	// game->directions[4][2] = 
-// 	// {
-// 	// 	{1, 0}, // UP
-// 	// 	{-1, 0}, // DOWN
-// 	// 	{0, 1}, // RIGHT
-// 	// 	{0, -1} // LEFT
-// 	// };
-// 	return (game);
-// }
 
 //1. check if file is valid
 
@@ -166,6 +142,7 @@ void	set_start_and_exit(t_map *game)
 	printf("the start position: (%d, %d)\n", game->start_y, game->start_x);
 	printf("the exit position: (%d, %d)\n", game->exit_y, game->exit_x);
 }
+
 
 /*int	ft_find_valid_path(t_map *game)
 {
