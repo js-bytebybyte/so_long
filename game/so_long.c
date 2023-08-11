@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 15:00:39 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:20:30 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
 	// check if the chars in map are valid
 	check = ft_char_check(&game);
-	printf("Wall check:\t%d\n", check);
+	printf("5 chars check:\t%d\n", check);
 
 	// retrieve the position of the player and the exit
 	set_start_and_exit(&game);

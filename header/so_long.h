@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 15:11:08 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/11 17:08:14 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ typedef struct s_map
 	void 	*win_ptr;
 	void 	*wall;
 	void 	*floor;
+	void	*player_img;
+	void	*exit_img;
+	void	*collectible_img;
 }	t_map;
 
 
