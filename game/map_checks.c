@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_validation_checks.c                            :+:      :+:    :+:   */
+/*   map_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 12:12:01 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/15 16:08:00 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,8 +139,6 @@ void	set_start_and_exit(t_map *game)
 		}
 		y++;
 	}
-	printf("the start position: (%d, %d)\n", game->start_y, game->start_x);
-	printf("the exit position: (%d, %d)\n", game->exit_y, game->exit_x);
 }
 
 

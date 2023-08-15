@@ -6,7 +6,7 @@
 #    By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 14:19:41 by jsteenpu          #+#    #+#              #
-#    Updated: 2023/08/12 00:20:55 by jolandestee      ###   ########.fr        #
+#    Updated: 2023/08/12 12:08:53 by jolandestee      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = so_long.out
 # Compiler and flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LINKS = -Lmlx -lmlx -framework OpenGL -framework Appkitgi
+LINKS = -Lmlx -lmlx -framework OpenGL -framework Appkit
 
 # Directories
 GAME_DIR = game

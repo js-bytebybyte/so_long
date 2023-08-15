@@ -6,7 +6,7 @@
 /*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/11 23:05:44 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/15 11:39:53 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int	allocate_rows(t_map *game, char *line)
 	while (i < (game->rows - 1))
 	{
 		temp[i] = game->map[i];
-		printf("OK\n");
 		i++;
 	} 
 	temp[i] = line;
