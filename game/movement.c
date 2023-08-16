@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:05:27 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/16 12:17:25 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:24:32 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	move_up(char **map, int y, int x, int token)
 	return (y);
 }
 
-int move_down(char **map, int x, int y, int token)
+int move_down(char **map, int y, int x, int token)
 {
 	if (map[y + 1][x] == '0' || map[y + 1][x] == 'C') // the tile above is just the floor
 	{
@@ -40,7 +40,9 @@ int move_down(char **map, int x, int y, int token)
 			token++;
 		}
 		map[y][x] = '0'; // set the current position as floor
-		y += 1;			 // go up along the vertical axis
+		printf("y before: %d\n", y);	
+		y += 1;
+		printf("y is now: %d\n", y);		 // go up along the vertical axis
 		map[y][x] = 'P'; // change the new start position value to P so that the player can be potioned there
 	}
 	else if (map[y + 1][x] == 'E')

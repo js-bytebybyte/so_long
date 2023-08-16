@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/16 09:44:52 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:06:53 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	set_player_map(t_map *game)
 	int	x;
 	int	y;
 	
-	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr, "images/player_cat.xpm", &x, &y);
+	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr, "images/cat_010.xpm", &x, &y);
 	game->player_img->width = x;
 	//printf("the player image width: %d\n", game->player_img->width);
 	game->player_img->heigth = y;
@@ -33,10 +33,10 @@ void	init_game_images(t_map *game)
 	// initialize the image -- return void pointer as the image initializer
 	// Creates one that contains the .xpm image found in relative_path
 	// and saves its width and height in pixels to the given pointers.
-	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, "images/wall_rock.xpm", &x, &y);
+	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, "images/bark_01.xpm", &x, &y);
 	printf("the wall image width: %d\n", x);
 	printf("the wall image heigth: %d\n", y);
-	game->floor = mlx_xpm_file_to_image(game->mlx_ptr, "images/floor.xpm", &x, &y);
+	game->floor = mlx_xpm_file_to_image(game->mlx_ptr, "images/grass_01.xpm", &x, &y);
 	printf("the floor image width: %d\n", x);
 	printf("the floor image heigth: %d\n", y);
 	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "images/exit_fence.xpm", &x, &y);

@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/16 13:42:41 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/16 16:59:07 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 # define RIGHT_KEY 2
 # define ESC_KEY 53
 
-/*----------------------- Structure for game map ------------------------------*/
+# define IMG_SIZE 40
+/*----------------------- Structure for game map -------------------------*/
 
 typedef struct s_size
 {

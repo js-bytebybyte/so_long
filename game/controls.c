@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/16 13:20:12 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:25:09 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int  key_controls(int keycode, t_map *game)
 	else if (keycode == UP_KEY)
         game->start_y = move_up(game->map, game->start_y, game->start_x, game->token);
 	else if (keycode == DOWN_KEY)
+    {   
+        printf("position: y - %d, x - %d\n", game->start_y, game->start_x);
         game->start_y = move_down(game->map, game->start_y, game->start_x, game->token);
+    }
     else if (keycode == LEFT_KEY)
         game->start_x = move_left(game->map, game->start_y, game->start_x, game->token);
     else if (keycode == RIGHT_KEY)
@@ -32,6 +35,6 @@ int  key_controls(int keycode, t_map *game)
     if (game->start_x == 0 || game->start_y == 0)
         terminate_game();
     adding_in_graphics(game);
-    printf("the number of tokens gathered: %d\n", game->token);
+    //printf("the number of tokens gathered: %d\n", game->token);
 	return (0);
 }
