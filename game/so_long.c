@@ -3,16 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
+/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/15 15:34:33 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/16 12:18:08 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
+void	terminate_game()
+{
+	t_map	game;
+	int		i;
 
+	if (game.win_ptr)
+		mlx_destroy_window(game.mlx_ptr, game.win_ptr);
+	free(game.mlx_ptr);
+	i = 0;
+	if (game.map[i])
+	{
+		while (i < game.rows)
+		{	
+			free(game.map[i]);
+			i++;
+		}
+	}
+	free(game.map);
+}
 
 int main(int argc, char **argv)
 {

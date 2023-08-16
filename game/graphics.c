@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
+/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/15 17:08:07 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/16 09:44:52 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@ void	adding_in_graphics(t_map *game)
 			if (game->map[height][width] == '1') // wall
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall, width * 40, height * 40);
 			if (game->map[height][width] == '0') // floor
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor, width, height);
+				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor, width * 40, height * 40);
 			if (game->map[height][width] == 'C') // collectible
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->collectible_img, width, height);
+				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->collectible_img, width * 40, height * 40);
 			if (game->map[height][width] == 'P') // player
 			{
 				set_player_map(game);
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, width, height);
+				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, width * 40, height * 40);
 			}
 			if (game->map[height][width] == 'E') // exit
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_img, width, height);
+				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_img, width * 40, height * 40);
 			width++;
 		}
 		height++;

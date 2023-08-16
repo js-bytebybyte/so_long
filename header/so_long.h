@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
+/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/15 16:12:38 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/16 12:16:28 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,11 @@ void	init_game_images(t_map *game);
 void	adding_in_graphics(t_map *game);
 
 int	key_controls(int keycode, t_map *game);
+int move_up(char **map, int y, int x, int token);
+int move_down(char **map, int x, int y, int token);
+int move_left(char **map, int y, int x, int token);
+int move_right(char **map, int y, int x, int token);
+
+void	terminate_game(void);
 
 #endif	
