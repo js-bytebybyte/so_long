@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_reading.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
+/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/15 11:39:53 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/16 13:51:38 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	allocate_rows(t_map *game, char *line)
 	// allocate mem for each \n from the txt file via tmp 
 	temp = (char **)malloc((game->rows + 1) * sizeof(char *));
 	if (!temp)
-		return (0);
+		return (error("Allocation temp array failure."));
 
 	// add null terminator to last block of mem
 	temp[game->rows] = NULL;
@@ -85,8 +85,7 @@ int	map_reading(t_map *game, char *map_file)
 	game->map = NULL;
 	game->fd = open(map_file, O_RDONLY);
 	if (game->fd < 0)
-		return (0); // later aanpassen?
-
+		return (error("File opening failure.")); // later aanpassen?
 	game->rows = 0;
 	while (1)
 	{

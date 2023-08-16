@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/16 12:16:28 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/16 13:42:41 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ typedef struct s_map
 	int		token;
 }	t_map;
 
+/*----------------------- Functions ------------------------------*/
 
+// map reading functions
 
 int valid_file(int argc, char *file);
 int valid_file_extension(char *file_name, char *file_extension);
@@ -78,6 +80,8 @@ void	set_player_map(t_map *game);
 void	init_game_images(t_map *game);
 void	adding_in_graphics(t_map *game);
 
+// hook event functions 
+
 int	key_controls(int keycode, t_map *game);
 int move_up(char **map, int y, int x, int token);
 int move_down(char **map, int x, int y, int token);
@@ -85,5 +89,7 @@ int move_left(char **map, int y, int x, int token);
 int move_right(char **map, int y, int x, int token);
 
 void	terminate_game(void);
+
+int	error(char *message);
 
 #endif	

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
+/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/15 16:08:00 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/16 13:48:00 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int	valid_file(int argc, char *file)
 	// the number of arguments is 1
 	// printf("No arguments were passed.");
 	if (argc == 1)
-		return (0);
+		return (error("Please provide 1 map file as argument."));
 
 	// the number of arguments is higher than 2; so too many arguments
 	// printf("Please only provide 1 map file.");
 	if (argc > 2)
-		return (0);
+		return (error("Please provide just one map file."));
 
 	// I need to check if the file has the rigth extension
 	// printf("The file doesn't have the right extension");
 	if (valid_file_extension(file, ".ber") == 0)
-		return (0);
+		return (error("The file extension is incorrect. Please provide a .ber file."));
 	return (1);
 }
 

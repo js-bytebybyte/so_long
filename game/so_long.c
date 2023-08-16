@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/16 12:18:08 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/16 13:56:21 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,22 @@ int main(int argc, char **argv)
 	
 	// check if the file as argument is valid
 	check = valid_file(argc, argv[1]);
-	printf("Args and file extension check: %d\n", check);
-	
+	if(!check)
+		return (error("Invalid map file.\n"));
+		
 	// read the map file + copy all the chars of the file in 2D array map
 	map_reading(&game, argv[1]);
 
 	// error checking of the 2D array 'map'
 	// Is the map surrounded by walls (char == '1')?
 	check = ft_wall_check(&game);
-	printf("Wall check:\t%d\n", check);
+	if(!check)
+		return (error("The map file is not surrounded by walls.\n"));
 
 	// check if the chars in map are valid
 	check = ft_char_check(&game);
-	printf("5 chars check:\t%d\n", check);
+	if(!check)
+		return (error("The map is missing and/or contains invalid characters.\n"));
 
 	// retrieve the position of the player and the exit
 	set_start_and_exit(&game);
