@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/16 13:51:38 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:27:12 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	count_columns(char *map_row)
 		i++;
 
 	// if \n found -- add the char; 
-	if (map_row[i] == '\n')
-		i++;
+	// if (map_row[i] == '\n')
+	// 	i++;
 	return (i);
 }
 

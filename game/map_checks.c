@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/16 13:48:00 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:31:23 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,10 @@ int ft_wall_check(t_map *game)
 	// check if the first row and the last row of the map contains only '1's 
 	// this is the horizontal wall check
 	i = 0;
-	map_colums = game->columns; // 14
-	map_rows = game->rows; // 5
-	while (i < map_colums - 1) // 13 dus van 0 tem 12; \n is op plaats 13
+	map_colums = game->columns; // 19
+	map_rows = game->rows; // 10
+	while (i < map_colums) // 13 dus van 0 tem 12; \n is op plaats 13
 	{
-		
 		if (game->map[0][i] != '1' || game->map[map_rows - 1][i] != '1')
 			return (0);
 		i++;
@@ -61,7 +60,7 @@ int ft_wall_check(t_map *game)
 	i = 0;
 	while (i < map_rows) // 5 dus van 0 tem 4; \n is op plaats 13
 	{
-		if (game->map[i][0] != '1' || game->map[i][map_colums - 2] != '1')
+		if (game->map[i][0] != '1' || game->map[i][map_colums - 1] != '1')
 			return (0);
 		i++;
 	}
