@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/17 11:06:47 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/17 11:40:15 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	init_game_images(t_map *game)
 	// initialize the image -- return void pointer as the image initializer
 	// Creates one that contains the .xpm image found in relative_path
 	// and saves its width and height in pixels to the given pointers.
-	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/wall.xpm", &x, &y);
+	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, "images/bark_01.xpm", &x, &y);
 	printf("the wall image width: %d\n", x);
 	printf("the wall image heigth: %d\n", y);
-	game->floor = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/floor.xpm", &x, &y);
+	game->floor = mlx_xpm_file_to_image(game->mlx_ptr, "images/floor_grass_tile.xpm", &x, &y);
 	printf("the floor image width: %d\n", x);
 	printf("the floor image heigth: %d\n", y);
 	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/exit.xpm", &x, &y);
