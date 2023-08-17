@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/17 12:29:54 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/17 14:02:19 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ void	adding_in_graphics(t_map *game)
 			if (game->map[height][width] == 'C') // collectible
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->collectible_img, width * IMG_SIZE, height * IMG_SIZE);
 			if (game->map[height][width] == 'P') // player
-			{
-				//set_player_map(game);
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, width * IMG_SIZE, height * IMG_SIZE);
-			}
 			if (game->map[height][width] == 'E') // exit
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_img, width * IMG_SIZE, height * IMG_SIZE);
 			width++;

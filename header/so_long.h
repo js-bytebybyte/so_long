@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/17 11:17:04 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/17 14:03:53 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,6 @@ void	adding_in_graphics(t_map *game);
 // hook event functions 
 
 int	key_controls(int keycode, t_map *game);
-int move_up(char **map, int y, int x, int token);
-int move_down(char **map, int x, int y, int token);
-int move_left(char **map, int y, int x, int token);
-int move_right(char **map, int y, int x, int token);
 
 void	terminate_game(void);
 
