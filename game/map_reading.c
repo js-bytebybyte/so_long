@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/17 11:27:12 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:39:56 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,15 @@
 int	count_columns(char *map_row)
 {
 	int	i;
-
-	i = 0;
 	
 	// check of onderstande statement wel noodzakelijk is
 	if (!map_row)
 		return (0);
 		
-	// count the number of chars until \n or eof
+	i = 0;
+	// count the number of chars of the first line until \n 
 	while(map_row[i] && map_row[i] != '\n')
 		i++;
-
-	// if \n found -- add the char; 
-	// if (map_row[i] == '\n')
-	// 	i++;
 	return (i);
 }
 
