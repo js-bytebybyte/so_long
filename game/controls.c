@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/18 15:47:53 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:13:00 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +127,11 @@ int  key_controls(int keycode, t_map *game)
     else
 		printf("other key was pressed: %d\n", keycode);
     printf("the player's new position (%d, %d)\n", game->start_y, game->start_x);
+	game->moves++;
     if (!moved)
         terminate_game();
     adding_in_graphics(game);
+	printf("moves: %d\n", game->moves);
     printf("the number of tokens left to collect: %d\n", game->collectibles);
 	return (0);
 }
