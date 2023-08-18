@@ -6,61 +6,52 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/17 11:31:23 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/18 13:41:17 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
 /* functions to check the conditions to be met for a valid map */
-
 //1. check if file is valid
 
-int	valid_file(int argc, char *file)
+static int	valid_file(int argc, char *file)
 {
-	// the number of arguments is 1
-	// printf("No arguments were passed.");
+	if (!argc || !file)
+		return (error("Valid file failure."));
 	if (argc == 1)
 		return (error("Please provide 1 map file as argument."));
-
-	// the number of arguments is higher than 2; so too many arguments
-	// printf("Please only provide 1 map file.");
 	if (argc > 2)
 		return (error("Please provide just one map file."));
-
-	// I need to check if the file has the rigth extension
-	// printf("The file doesn't have the right extension");
-	if (valid_file_extension(file, ".ber") == 0)
+	if (!valid_file_extension(file, ".ber"))
 		return (error("The file extension is incorrect. Please provide a .ber file."));
 	return (1);
 }
 
 // 2. The map must be closed/surrounded by walls. If it’s not, the program must return
 
-int ft_wall_check(t_map *game)
+static int walls_check(t_map *game)
 {
 	int	i;
-	int map_colums;
+	int map_columns;
 	int	map_rows;
 
-	// check if the first row and the last row of the map contains only '1's 
-	// this is the horizontal wall check
+	// horizontal wall check - first and last row
 	i = 0;
-	map_colums = game->columns; // 19
+	map_columns = game->columns; // 19
 	map_rows = game->rows; // 10
-	while (i < map_colums) // 13 dus van 0 tem 12; \n is op plaats 13
+	while (i < map_columns) // 13 dus van 0 tem 12; \n is op plaats 13
 	{
 		if (game->map[0][i] != '1' || game->map[map_rows - 1][i] != '1')
 			return (0);
 		i++;
 	}
 
-	// check if the fist and last column of the map contains only '1's
-	// this is the vertical wall check
+	// vertical wall check - first and last column
 	i = 0;
 	while (i < map_rows) // 5 dus van 0 tem 4; \n is op plaats 13
 	{
-		if (game->map[i][0] != '1' || game->map[i][map_colums - 1] != '1')
+		if (game->map[i][0] != '1' || game->map[i][map_columns - 1] != '1')
 			return (0);
 		i++;
 	}
@@ -81,15 +72,12 @@ be valid.
 
 */
 
-int	ft_char_check(t_map *game)
+static int	valid_chars_check(t_map *game)
 {
 	int i;
 	int j;
 	
 	i = 0;
-	game->player = 0;
-	game->exit = 0;
-	game->collectibles = 0;
 	while (i < game->rows)
 	{
 		j = 0;
@@ -140,6 +128,29 @@ void	set_start_and_exit(t_map *game)
 	}
 }
 
+int	map_init_checks(t_map *game, int argc, char *map_file)
+{
+	// check if the file as argument is valid
+	if (!valid_file(argc, map_file))
+		return (error("Invalid map file.\n"));
+		
+	// read the map file + copy all the chars of the file in 2D array map
+	if (!map_reading(game, map_file))
+		return (error("Error while reading map.\n"));
+		
+	// Is the map surrounded by walls (char == '1')?
+	if (!walls_check(game))
+		return (error("The map file is not surrounded by walls.\n"));
+
+	// check if the chars in map are valid
+	if (!valid_chars_check(game))
+		return (error("The map is missing and/or contains invalid characters.\n"));
+
+	// retrieve the position of the player and the exit
+	set_start_and_exit(game);
+
+	return (1);
+}
 
 /*int	ft_find_valid_path(t_map *game)
 {

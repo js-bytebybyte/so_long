@@ -6,11 +6,24 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/17 11:18:34 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/18 13:28:25 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*s;
+
+	s = (unsigned char *)b;
+	while (len--)
+	{
+		*s = (unsigned char)c;
+		s++;
+	}
+	return (b);
+}
 
 void	terminate_game()
 {
@@ -35,29 +48,12 @@ void	terminate_game()
 int main(int argc, char **argv)
 {
 	t_map		game;
-	int			check;
 	
-	// check if the file as argument is valid
-	check = valid_file(argc, argv[1]);
-	if(!check)
-		return (error("Invalid map file.\n"));
-		
-	// read the map file + copy all the chars of the file in 2D array map
-	map_reading(&game, argv[1]);
-
-	// error checking of the 2D array 'map'
-	// Is the map surrounded by walls (char == '1')?
-	check = ft_wall_check(&game);
-	if(!check)
-		return (error("The map file is not surrounded by walls.\n"));
-
-	// check if the chars in map are valid
-	check = ft_char_check(&game);
-	if(!check)
-		return (error("The map is missing and/or contains invalid characters.\n"));
-
-	// retrieve the position of the player and the exit
-	set_start_and_exit(&game);
+	// initialize the variables of t_map game 
+	ft_memset(&game, 0, sizeof(t_map));
+	
+	// map validation checks + reading map
+	map_init_checks(&game, argc, argv[1]);
 	
 	// initialize the connection
 	game.mlx_ptr = mlx_init();
@@ -67,9 +63,7 @@ int main(int argc, char **argv)
 	game.win_ptr = mlx_new_window(game.mlx_ptr, game.columns * IMG_SIZE, game.rows * IMG_SIZE, "so_long");
 	printf("game width (columns): %d, game heigth (rows): %d\n", game.columns, game.rows);
 
-	// initialize the image -- return void pointer as the image initializer
-	// Creates one that contains the .xpm image found in relative_path
-	// and saves its width and height in pixels to the given pointers.
+	// initialize the images
 	init_game_images(&game);
 	
 	// put image to window according to the char in 2D 'map' array 

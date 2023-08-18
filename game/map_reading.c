@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/17 16:39:56 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/18 13:13:14 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,13 @@
 
 // return type static int of gewone int???
 
-int	count_columns(char *map_row)
+static int	count_columns(char *map_row)
 {
 	int	i;
 	
-	// check of onderstande statement wel noodzakelijk is
 	if (!map_row)
 		return (0);
-		
 	i = 0;
-	// count the number of chars of the first line until \n 
 	while(map_row[i] && map_row[i] != '\n')
 		i++;
 	return (i);
@@ -33,31 +30,28 @@ int	count_columns(char *map_row)
 // from the file pointed by fd in the 2D array called "map"
 // so that I can check for errors later
 // line has the mem address of the first line of the map txt file
-// why is the return type a static int?
 
-int	allocate_rows(t_map *game, char *line)
+static int	allocate_rows(t_map *game, char *line)
 {
 	char	**temp;
 	int		i;
 	
-	// alocate memory for the rows in the map of the game
 	if (!line)
 		return (0);
-	
+
 	// each \n in txt is represented by the game.rows var
 	game->rows++;
 	
-	// allocate mem for each \n from the txt file via tmp 
+	// allocate mem for each \n from the .ber map file pointed by line via tmp 
 	temp = (char **)malloc((game->rows + 1) * sizeof(char *));
 	if (!temp)
-		return (error("Allocation temp array failure."));
+		return (0);
 
 	// add null terminator to last block of mem
-	temp[game->rows] = NULL;
+	temp[game->rows] = 0;
 
 	// copy first what has already been stored in map
 	i = 0;
-	
 	while (i < (game->rows - 1))
 	{
 		temp[i] = game->map[i];
@@ -77,11 +71,9 @@ int	map_reading(t_map *game, char *map_file)
 {
 	char	*line;
 	
-	game->map = NULL;
 	game->fd = open(map_file, O_RDONLY);
-	if (game->fd < 0)
-		return (error("File opening failure.")); // later aanpassen?
-	game->rows = 0;
+	if (game->fd < 3) // I don't want to read from standard I/O - ERROR
+		return (error("File opening failure."));
 	while (1)
 	{
 		line = get_next_line(game->fd);
@@ -89,14 +81,15 @@ int	map_reading(t_map *game, char *map_file)
 			break;
 		allocate_rows(game, line);
 	}
-	printf("number of rows/lines in the map: %d\n", game->rows);
+	
+	// segfault protection if the opened file == NULL
+	if (!line && !game->map)
+		return (0);
 
 	// close the file
 	close(game->fd);
-
+	
 	// count the number of columns
-	game->columns = 0;
-	game->columns = count_columns(game->map[0]);
-	printf("number of columns in the map: %d\n", game->columns);
+	game->columns = count_columns(game->map[0]);	
 	return (1);
 }
