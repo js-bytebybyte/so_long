@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/18 13:37:39 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:23:43 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_map
 	int		start_y;
 	int		exit_x;
 	int		exit_y;
-	//int		directions[4][2];
+	//t_directions	move;
 
 	void 	*mlx_ptr;
 	void 	*win_ptr;
@@ -62,8 +62,6 @@ typedef struct s_map
 	void	*collectible_img;
 	t_size	*player_img;
 
-	// collectibles counter
-	int		token;
 }	t_map;
 
 /*----------------------- Functions ------------------------------*/
@@ -74,6 +72,7 @@ int map_reading(t_map *game, char *map_file);
 
 void	init_game_images(t_map *game);
 void	adding_in_graphics(t_map *game);
+void	terminate_game(void);
 
 int	key_controls(int keycode, t_map *game);
 

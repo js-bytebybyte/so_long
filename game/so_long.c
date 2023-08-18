@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/18 13:28:25 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/18 13:43:08 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int main(int argc, char **argv)
 	game.mlx_ptr = mlx_init();
 
 	// create new window on the screen
-	// wich measurements are best for the widow size?
 	game.win_ptr = mlx_new_window(game.mlx_ptr, game.columns * IMG_SIZE, game.rows * IMG_SIZE, "so_long");
 	printf("game width (columns): %d, game heigth (rows): %d\n", game.columns, game.rows);
 

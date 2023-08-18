@@ -6,106 +6,130 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/17 14:04:34 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/18 15:47:53 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-static int	move_up(char **map, int y, int x, int token)
+static int	move_up(t_map *game)
 {
-	if (map[y - 1][x] == '0' || map[y - 1][x] == 'C') // the tile above is just the floor
+	int	x;
+	int	y;
+
+	x = game->start_x;
+	y = game->start_y;
+	if (game->map[y - 1][x] == '0' || game->map[y - 1][x] == 'C')
 	{
-		if (map[y - 1][x] == 'C')
+		if (game->map[y - 1][x] == 'C')
 		{
 			printf("Yummy, another candy in my tummy!\n");
-			token++;
+			game->collectibles--;
 		}
-		map[y][x] = '0'; // set the current position as floor
-		y -= 1;				   // go up along the vertical axis
-		map[y][x] = 'P'; // change the new start position value to P so that the player can be potioned there
+		game->map[y][x] = '0'; 
+		y -= 1;	
+		game->map[y][x] = 'P';
+		game->start_y = y;
 	}
-	else if (map[y - 1][x] == 'E')
+	else if (game->map[y - 1][x] == 'E')
 		return (0);
-	return (y);
+	return (1);
 }
 
-static int move_down(char **map, int y, int x, int token)
+static int move_down(t_map *game)
 {
-	if (map[y + 1][x] == '0' || map[y + 1][x] == 'C') // the tile above is just the floor
+	int	x;
+	int	y;
+
+	x = game->start_x;
+	y = game->start_y;
+	if (game->map[y + 1][x] == '0' || game->map[y + 1][x] == 'C') // the tile above is just the floor
 	{
-		if (map[y + 1][x] == 'C')
+		if (game->map[y + 1][x] == 'C')
 		{
 			printf("Yummy, another candy in my tummy!\n");
-			token++;
+			game->collectibles--;
 		}
-		map[y][x] = '0'; // set the current position as floor
-		printf("y before: %d\n", y);	
+		game->map[y][x] = '0';
 		y += 1;
-		printf("y is now: %d\n", y);		 // go up along the vertical axis
-		map[y][x] = 'P'; // change the new start position value to P so that the player can be potioned there
+		game->map[y][x] = 'P';
+		game->start_y = y;
 	}
-	else if (map[y + 1][x] == 'E')
+	else if (game->map[y + 1][x] == 'E')
 		return (0);
-	return (y);
+	return (1);
 }
 
-static int move_left(char **map, int y, int x, int token)
+static int move_left(t_map *game)
 {
-	if (map[y][x - 1] == '0' || map[y][x - 1] == 'C')
+	int	x;
+	int	y;
+
+	x = game->start_x;
+	y = game->start_y;
+	if (game->map[y][x - 1] == '0' || game->map[y][x - 1] == 'C')
 	{
-		if (map[y][x - 1] == 'C')
+		if (game->map[y][x - 1] == 'C')
 		{
 			printf("Yummy, another candy in my tummy!\n");
-			token++;
+			game->collectibles--;
 		}
-		map[y][x] = '0'; // set the current position as floor
-		x -= 1;			 // go up along the vertical axis
-		map[y][x] = 'P'; // change the new start position value to P so that the player can be potioned there
+		game->map[y][x] = '0'; 
+		x -= 1;			
+		game->map[y][x] = 'P'; 
+		game->start_x = x;
 	}
-	else if (map[y][x - 1] == 'E')
+	else if (game->map[y][x - 1] == 'E')
 		return (0);
-	return (x);
+	return (1);
 }
 
-static int move_right(char **map, int y, int x, int token)
+static int move_right(t_map *game)
 {
-	if (map[y][x + 1] == '0' || map[y][x + 1] == 'C')
+	int	x;
+	int	y;
+
+	x = game->start_x;
+	y = game->start_y;
+	if (game->map[y][x + 1] == '0' || game->map[y][x + 1] == 'C')
 	{
-		if (map[y][x + 1] == 'C')
+		if (game->map[y][x + 1] == 'C')
 		{
 			printf("Yummy, another candy in my tummy!\n");
-			token++;
+			game->collectibles--;
 		}
-		map[y][x] = '0'; // set the current position as floor
+		game->map[y][x] = '0'; // set the current position as floor
 		x += 1;			 // go up along the vertical axis
-		map[y][x] = 'P'; // change the new start position value to P so that the player can be potioned there
+		game->map[y][x] = 'P';
+		game->start_x = x; 
 	}
-	else if (map[y][x + 1] == 'E')
+	else if (game->map[y][x + 1] == 'E')
 		return (0);
-	return (x);
+	return (1);
 }
 
 int  key_controls(int keycode, t_map *game)
 {
-    game->token = 0;
+	int	moved;
+	
+	moved = 0;
     printf("the start position: in keycontrol function (%d, %d)\n", game->start_y, game->start_x);
 	if (keycode == ESC_KEY)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	else if (keycode == UP_KEY)
-        game->start_y = move_up(game->map, game->start_y, game->start_x, game->token);
+        moved = move_up(game);
 	else if (keycode == DOWN_KEY)
-        game->start_y = move_down(game->map, game->start_y, game->start_x, game->token);
+        moved = move_down(game);
     else if (keycode == LEFT_KEY)
-        game->start_x = move_left(game->map, game->start_y, game->start_x, game->token);
+        moved = move_left(game);
     else if (keycode == RIGHT_KEY)
-        game->start_x = move_right(game->map, game->start_y, game->start_x, game->token);
+        moved = move_right(game);
     else
 		printf("other key was pressed: %d\n", keycode);
     printf("the player's new position (%d, %d)\n", game->start_y, game->start_x);
-    if (game->start_x == 0 || game->start_y == 0)
+    if (!moved)
         terminate_game();
     adding_in_graphics(game);
-    //printf("the number of tokens gathered: %d\n", game->token);
+    printf("the number of tokens left to collect: %d\n", game->collectibles);
 	return (0);
 }

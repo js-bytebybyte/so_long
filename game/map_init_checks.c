@@ -6,14 +6,12 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/18 13:41:17 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/18 14:21:55 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-/* functions to check the conditions to be met for a valid map */
-//1. check if file is valid
 
 static int	valid_file(int argc, char *file)
 {
@@ -101,7 +99,7 @@ static int	valid_chars_check(t_map *game)
 	return (1);
 }
 
-void	set_start_and_exit(t_map *game)
+static void	set_start_and_exit(t_map *game)
 {
 	int x; // move along the columns
 	int	y; // move through the different rows
