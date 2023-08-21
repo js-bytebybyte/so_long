@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/18 17:13:00 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/21 14:48:21 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,21 +115,19 @@ int  key_controls(int keycode, t_map *game)
 	moved = 0;
     printf("the start position: in keycontrol function (%d, %d)\n", game->start_y, game->start_x);
 	if (keycode == ESC_KEY)
-		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-	else if (keycode == UP_KEY)
+		terminate_game(game);
+	if (keycode == UP_KEY)
         moved = move_up(game);
-	else if (keycode == DOWN_KEY)
+	if (keycode == DOWN_KEY)
         moved = move_down(game);
-    else if (keycode == LEFT_KEY)
+ 	if (keycode == LEFT_KEY)
         moved = move_left(game);
-    else if (keycode == RIGHT_KEY)
+    if (keycode == RIGHT_KEY)
         moved = move_right(game);
-    else
-		printf("other key was pressed: %d\n", keycode);
     printf("the player's new position (%d, %d)\n", game->start_y, game->start_x);
 	game->moves++;
-    if (!moved)
-        terminate_game();
+    // if (!moved)
+    //     terminate_game(game);
     adding_in_graphics(game);
 	printf("moves: %d\n", game->moves);
     printf("the number of tokens left to collect: %d\n", game->collectibles);

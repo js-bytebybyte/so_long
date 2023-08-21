@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/18 17:17:38 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/21 14:48:52 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,26 @@ void	*ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 
-void	terminate_game()
+int	terminate_game(t_map *game)
 {
-	t_map	game;
 	int		i;
 
-	if (game.win_ptr)
-		mlx_destroy_window(game.mlx_ptr, game.win_ptr);
-	free(game.mlx_ptr);
+	printf("the mlx_pointer address: %p\n", game->mlx_ptr);
+	printf("the win_pointer address: %p\n", game->win_ptr);
+	if (game->win_ptr)
+		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	free(game->mlx_ptr);
 	i = 0;
-	if (game.map[i])
+	if (game->map[i])
 	{
-		while (i < game.rows)
+		while (i < game->rows)
 		{	
-			free(game.map[i]);
+			free(game->map[i]);
 			i++;
 		}
 	}
-	free(game.map);
+	free(game->map);
+	exit(0);
 }
 
 int main(int argc, char **argv)
