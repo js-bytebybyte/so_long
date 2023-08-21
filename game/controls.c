@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/21 15:52:25 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:57:16 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	move(t_map *game, int dy, int dx)
         // change current position value to 'floor' (= 0) for graphics
         game->map[game->start_y][game->start_x] = '0';
         
-        // change the start_x && y according to direction  
+        // change the start_x && start_y according to direction  
         game->start_x += dx;
         game->start_y += dy;
         

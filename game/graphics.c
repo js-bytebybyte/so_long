@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/18 14:30:34 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/21 16:33:17 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_game_images(t_map *game)
 	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/wall.xpm", &x, &y);
 	printf("the wall image width: %d\n", x);
 	printf("the wall image heigth: %d\n", y);
-	game->floor = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/floor.xpm", &x, &y);
+	game->floor = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/tile_50_50.xpm", &x, &y);
 	printf("the floor image width: %d\n", x);
 	printf("the floor image heigth: %d\n", y);
 	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/exit.xpm", &x, &y);

@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/21 15:55:21 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:32:03 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ typedef struct s_size
 	int	heigth;
 } 	t_size;
 
+
+typedef struct s_img
+{
+	void	*win;
+	void	*img_ptr;
+	char	*addr;
+	int		h;
+	int		w;
+	int		bpp;
+	int		endian;
+	int		line_len;
+}		t_img;
+
 typedef struct s_map
 {
 	char	**map;
@@ -61,6 +74,7 @@ typedef struct s_map
 	void 	*floor;
 	void	*exit_img;
 	void	*collectible_img;
+	t_img	background_img;
 	t_size	*player_img;
 
 }	t_map;

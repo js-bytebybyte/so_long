@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checks.c                                       :+:      :+:    :+:   */
+/*   map_init_checks.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/18 14:21:55 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:56:35 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static int	valid_file(int argc, char *file)
 	if (!argc || !file)
 		return (error("Valid file failure."));
 	if (argc == 1)
-		return (error("Please provide 1 map file as argument."));
+		return (error("Please provide 1 map .ber file as argument."));
 	if (argc > 2)
-		return (error("Please provide just one map file."));
+		return (error("Please provide just one map .ber file."));
 	if (!valid_file_extension(file, ".ber"))
 		return (error("The file extension is incorrect. Please provide a .ber file."));
 	return (1);
