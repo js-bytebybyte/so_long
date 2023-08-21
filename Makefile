@@ -6,7 +6,7 @@
 #    By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 14:19:41 by jsteenpu          #+#    #+#              #
-#    Updated: 2023/08/21 14:24:07 by jsteenpu         ###   ########.fr        #
+#    Updated: 2023/08/21 15:38:49 by jsteenpu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = so_long.out
 
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 LINKS = -Lmlx -lmlx -framework OpenGL -framework Appkit
 
 # Directories

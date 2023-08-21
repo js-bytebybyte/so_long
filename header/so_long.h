@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/21 14:47:20 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:55:21 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,16 @@ typedef struct s_map
 
 /*----------------------- Functions ------------------------------*/
 
+int	terminate_game(t_map *game);
 int valid_file_extension(char *file_name, char *file_extension);
 int	map_init_checks(t_map *game, int argc, char *map_file);
 int map_reading(t_map *game, char *map_file);
 
-//char	*ft_itoa(int n);
+
 void	init_game_images(t_map *game);
 void	adding_in_graphics(t_map *game);
-int	terminate_game(t_map *game);
+
+//char	*ft_itoa(int n);
 //void	display_moves(t_map	*game);
 
 int	key_controls(int keycode, t_map *game);

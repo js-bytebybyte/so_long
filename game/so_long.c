@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/21 14:48:52 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:38:22 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ int main(int argc, char **argv)
 	ft_memset(&game, 0, sizeof(t_map));
 	
 	// map validation checks + reading map
-	map_init_checks(&game, argc, argv[1]);
+	if (!map_init_checks(&game, argc, argv[1]))
+		return (0);
 	
 	// initialize the connection
 	game.mlx_ptr = mlx_init();
