@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/21 15:57:16 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/21 22:46:50 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,20 @@ static int	move(t_map *game, int dy, int dx)
 
 int  key_controls(int keycode, t_map *game)
 {
-	int	moved;
+	// int	moved;
 	
-	moved = 0;
+	// moved = 0;
 	if (keycode == ESC_KEY)
 		terminate_game(game);
 	if (keycode == UP_KEY)
-        moved = move(game, -1, 0);
+        game->moves += move(game, -1, 0);
 	if (keycode == DOWN_KEY)
-        moved = move(game, 1, 0);
+        game->moves +=move(game, 1, 0);
  	if (keycode == LEFT_KEY)
-        moved = move(game, 0, -1);
+        game->moves += move(game, 0, -1);
     if (keycode == RIGHT_KEY)
-        moved = move(game, 0, 1);
-	game->moves++;
+        game->moves += move(game, 0, 1);
+	// game->moves++;
     adding_in_graphics(game);
 	printf("moves: %d\n", game->moves);
     printf("the number of tokens left to collect: %d\n", game->collectibles);
