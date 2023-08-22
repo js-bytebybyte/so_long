@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   graphics.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/22 13:26:39 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/22 21:46:20 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	init_game_images(t_map *game)
 	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/simple_bush.xpm", &x, &y);
 	printf("the wall image width: %d\n", x);
 	printf("the wall image heigth: %d\n", y);
-	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/chicken_house.xpm", &x, &y);
+	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/castle_32px.xpm", &x, &y);
 	printf("the exit image width: %d\n", x);
 	printf("the exit image heigth: %d\n", y);
-	game->collectible_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/heart.xpm", &x, &y);
+	game->collectible_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/mushroom.xpm", &x, &y);
 	printf("the collectibles image width: %d\n", x);
 	printf("the collectibles imgage heigth: %d\n", y);
 	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/tile000.xpm", &x, &y);
