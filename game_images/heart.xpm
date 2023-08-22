@@ -1,0 +1,25 @@
+/* XPM */
+static char *heart1692703283[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 3 1 ",
+"  c None",
+". c #AA3636",
+"X c #ED3232",
+/* pixels */
+"                ",
+"                ",
+"                ",
+"                ",
+"                ",
+"     ..  ..     ",
+"    .XX..XX.    ",
+"   .XXXXXXXX.   ",
+"   .XXXXXXXX.   ",
+"    .XXXXXX.    ",
+"     .XXXX.     ",
+"      .XX.      ",
+"       ..       ",
+"                ",
+"                ",
+"                "
+};

@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/22 13:12:37 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/22 13:26:09 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ int main(int argc, char **argv)
 	game.win_ptr = mlx_new_window(game.mlx_ptr, game.columns * IMG_SIZE, game.rows * IMG_SIZE, "so_long");
 	//printf("game width (columns): %d, game heigth (rows): %d\n", game.columns, game.rows);
 
-	// initialize the image -- return void pointer as the image initializer
-	// Creates one that contains the .xpm image found in relative_path
-	// and saves its width and height in pixels to the given pointers.
+	// initializes the background and other images for the game
 	init_background(&game);
 	init_game_images(&game);
 	

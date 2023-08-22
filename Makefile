@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+         #
+#    By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 14:19:41 by jsteenpu          #+#    #+#              #
-#    Updated: 2023/08/21 22:49:10 by jolandestee      ###   ########.fr        #
+#    Updated: 2023/08/22 13:25:14 by jsteenpu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = so_long.out
 
 # Compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 LINKS = -Lmlx -lmlx -framework OpenGL -framework Appkit
 
 # Directories
