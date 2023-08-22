@@ -6,52 +6,86 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/21 16:33:17 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:33:38 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-// void	set_player_map(t_map *game)
-// {
-// 	int	x;
-// 	int	y;
-	
-	
-// 	game->player_img->width = x;
-// 	game->player_img->heigth = y;
-// }
-
 
 void	init_game_images(t_map *game)
 {
-	int 		x;
-	int			y;
+	int		x;
+	int		y;
+	//t_img	bg_image;
 
 	// initialize the image -- return void pointer as the image initializer
 	// Creates one that contains the .xpm image found in relative_path
 	// and saves its width and height in pixels to the given pointers.
-	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/wall.xpm", &x, &y);
+	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/simple_bush.xpm", &x, &y);
 	printf("the wall image width: %d\n", x);
 	printf("the wall image heigth: %d\n", y);
-	game->floor = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/tile_50_50.xpm", &x, &y);
-	printf("the floor image width: %d\n", x);
-	printf("the floor image heigth: %d\n", y);
-	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/exit.xpm", &x, &y);
+	//game->floor = bg_image.img_ptr;
+	// printf("the floor image width: %d\n", x);
+	// printf("the floor image heigth: %d\n", y);
+	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/castle_32px.xpm", &x, &y);
 	printf("the exit image width: %d\n", x);
 	printf("the exit image heigth: %d\n", y);
-	game->collectible_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/rsz_candy.xpm", &x, &y);
+	game->collectible_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/fish.xpm", &x, &y);
 	printf("the collectibles image width: %d\n", x);
 	printf("the collectibles imgage heigth: %d\n", y);
-	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr, "images/cat_010.xpm", &x, &y);
+	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/tile000.xpm", &x, &y);
 	printf("the player image width: %d\n", x);
 	printf("the player imgage heigth: %d\n", y);
 }
 
+void	init_background(t_map *game)
+{
+	t_img	bg_image;
+	int     y; // heigth of the window
+    int     x; // width of the window
+	int 	color;
+
+	bg_image.img_ptr = mlx_new_image(game->mlx_ptr, game->columns * IMG_SIZE, game->rows * IMG_SIZE);
+    bg_image.addr = mlx_get_data_addr(bg_image.img_ptr, &bg_image.bpp, &bg_image.line_len, &bg_image.endian);
+    printf("endian: %d\n", bg_image.endian);
+
+    color = 0x347434;
+    if (bg_image.bpp != 32)
+        color = mlx_get_color_value(game->mlx_ptr, color);
+    y = 0;
+    while (y < game->rows * IMG_SIZE)
+    {   
+        x = 0;    
+        while (x < game->columns * IMG_SIZE)
+        {
+            int pixel = (y * bg_image.line_len) + (x * 4);
+            if (bg_image.endian == 1)        // Most significant (Alpha) byte first
+            {
+                bg_image.addr[pixel + 0] = (color >> 24);
+                bg_image.addr[pixel + 1] = (color >> 16) & 0xFF;
+                bg_image.addr[pixel + 2] = (color >> 8) & 0xFF;
+                bg_image.addr[pixel + 3] = (color) & 0xFF;
+            }
+            else if (bg_image.endian == 0)   // Least significant (Blue) byte first
+            {
+                bg_image.addr[pixel + 0] = (color) & 0xFF;
+                bg_image.addr[pixel + 1] = (color >> 8) & 0xFF;
+                bg_image.addr[pixel + 2] = (color >> 16) & 0xFF;
+                bg_image.addr[pixel + 3] = (color >> 24);
+            }
+            x++;
+        }
+        y++;
+    }
+    mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, bg_image.img_ptr, 0, 0);
+}
+
 void	adding_in_graphics(t_map *game)
 {
-	int height;
-	int width;
+	int 	height;
+	int 	width;
+	//t_img	bg_image;
 
 	height = 0;
 	while (height < game->rows)
@@ -61,8 +95,8 @@ void	adding_in_graphics(t_map *game)
 		{
 			if (game->map[height][width] == '1') // wall
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall, width * IMG_SIZE, height * IMG_SIZE);
-			if (game->map[height][width] == '0') // floor
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->floor, width * IMG_SIZE, height * IMG_SIZE);
+			// if (game->map[height][width] == '0') // floor
+			// 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, bg_image.img_ptr, 0, 0);
 			if (game->map[height][width] == 'C') // collectible
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->collectible_img, width * IMG_SIZE, height * IMG_SIZE);
 			if (game->map[height][width] == 'P') // player
@@ -73,4 +107,5 @@ void	adding_in_graphics(t_map *game)
 		}
 		height++;
 	}
+	//mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, bg_image.img_ptr, 0, 0);
 }
