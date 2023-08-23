@@ -6,11 +6,11 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:38:16 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/23 10:41:31 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:12:04 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/so_long.h"
+#include "../headers/so_long.h"
 
 static void	display_moves(t_map	*game)
 {
@@ -23,6 +23,20 @@ static void	display_moves(t_map	*game)
 
 int	update(t_map *game)
 {
+	// static int	frame;
+	
+	// // add a frame and every x frames change the position by 1 pixel
+	// // so it looks like its animated
+	// frame++;
+	// if (frame == ANIMATION_FRAMES)
+	// 	game->start_y += 1;
+	// // every x*2 frames go back that pixel to loop the animation
+	// else if (frame >= ANIMATION_FRAMES * 2)
+	// {
+	// 	game->start_y -= 1;
+	// 	frame = 0;
+	// }
+	// mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, (game->start_x * IMG_SIZE), (game->start_y * IMG_SIZE));
 	display_moves(game);
-	return (1);	
+	return (0);	
 }

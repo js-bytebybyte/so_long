@@ -6,20 +6,23 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/23 10:43:51 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:04:28 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+/*----------------------- Additional libraries ------------------------------*/
+
 # include "../mlx/mlx.h"
 # include "get_next_line.h"
+# include "libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
 
-/*----------------------- Controls for game ------------------------------*/
+/*----------------------- Key controls macro ------------------------------*/
 
 # define UP_KEY 13
 # define DOWN_KEY 1
@@ -27,7 +30,12 @@
 # define RIGHT_KEY 2
 # define ESC_KEY 53
 
-# define IMG_SIZE 48
+/*----------------------- Graphics ------------------------------*/
+
+//# define ANIMATION_FRAMES 10
+# define IMG_SIZE 32
+
+
 /*----------------------- Structure for game map -------------------------*/
 
 typedef struct s_size
@@ -36,17 +44,17 @@ typedef struct s_size
 	int	heigth;
 } 	t_size;
 
-
 typedef struct s_img
 {
-	void	*win;
+	//void	*win;
 	void	*img_ptr;
-	char	*addr;
+	char	*address;
 	int		h;
 	int		w;
 	int		bpp;
 	int		endian;
 	int		line_len;
+	int		color;
 }		t_img;
 
 typedef struct s_map
@@ -80,21 +88,28 @@ typedef struct s_map
 
 /*----------------------- Functions ------------------------------*/
 
+
+// game utils
+int	error(char *message);
 int	terminate_game(t_map *game);
 int valid_file_extension(char *file_name, char *file_extension);
+
+
+// map init and checks functions
 int	map_init_checks(t_map *game, int argc, char *map_file);
 int map_reading(t_map *game, char *map_file);
 
+
+// graphics
+int	init_graphics(t_map *game);
 void	init_background(t_map *game);
 void	init_game_images(t_map *game);
 void	adding_in_graphics(t_map *game);
 
 
-char	*ft_itoa(int n);
+// hooks functions
 
 int	key_controls(int keycode, t_map *game);
 int	update(t_map *game);
-
-int	error(char *message);
 
 #endif	

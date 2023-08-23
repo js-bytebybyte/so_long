@@ -6,15 +6,13 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/23 10:44:21 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:12:11 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/so_long.h"
+#include "../headers/so_long.h"
 
-// initialize the image -- return void pointer as the image initializer
-// Creates one that contains the .xpm image found in relative_path
-// and saves its width and height in pixels to the given pointers.
+// initialize the images - returns void pointer as the image initializer
 
 void	init_game_images(t_map *game)
 {
@@ -38,17 +36,15 @@ void	init_game_images(t_map *game)
 void	init_background(t_map *game)
 {
 	t_img	bg_image;
-	int     y; // heigth of the window
-    int     x; // width of the window
-	int 	color;
+	int     y;
+    int     x;
 
 	bg_image.img_ptr = mlx_new_image(game->mlx_ptr, game->columns * IMG_SIZE, game->rows * IMG_SIZE);
-    bg_image.addr = mlx_get_data_addr(bg_image.img_ptr, &bg_image.bpp, &bg_image.line_len, &bg_image.endian);
-    printf("endian: %d\n", bg_image.endian);
+    bg_image.address = mlx_get_data_addr(bg_image.img_ptr, &bg_image.bpp, &bg_image.line_len, &bg_image.endian);
 
-    color = 0x347434;
+    bg_image.color = 0x347434;
     if (bg_image.bpp != 32)
-        color = mlx_get_color_value(game->mlx_ptr, color);
+        bg_image.color = mlx_get_color_value(game->mlx_ptr, bg_image.color);
     y = 0;
     while (y < game->rows * IMG_SIZE)
     {   
@@ -58,17 +54,17 @@ void	init_background(t_map *game)
             int pixel = (y * bg_image.line_len) + (x * 4);
             if (bg_image.endian == 1)        // Most significant (Alpha) byte first
             {
-                bg_image.addr[pixel + 0] = (color >> 24);
-                bg_image.addr[pixel + 1] = (color >> 16) & 0xFF;
-                bg_image.addr[pixel + 2] = (color >> 8) & 0xFF;
-                bg_image.addr[pixel + 3] = (color) & 0xFF;
+                bg_image.address[pixel + 0] = (bg_image.color >> 24);
+                bg_image.address[pixel + 1] = (bg_image.color >> 16) & 0xFF;
+                bg_image.address[pixel + 2] = (bg_image.color >> 8) & 0xFF;
+                bg_image.address[pixel + 3] = (bg_image.color) & 0xFF;
             }
             else if (bg_image.endian == 0)   // Least significant (Blue) byte first
             {
-                bg_image.addr[pixel + 0] = (color) & 0xFF;
-                bg_image.addr[pixel + 1] = (color >> 8) & 0xFF;
-                bg_image.addr[pixel + 2] = (color >> 16) & 0xFF;
-                bg_image.addr[pixel + 3] = (color >> 24);
+                bg_image.address[pixel + 0] = (bg_image.color) & 0xFF;
+                bg_image.address[pixel + 1] = (bg_image.color >> 8) & 0xFF;
+                bg_image.address[pixel + 2] = (bg_image.color >> 16) & 0xFF;
+                bg_image.address[pixel + 3] = (bg_image.color >> 24);
             }
             x++;
         }
@@ -77,6 +73,7 @@ void	init_background(t_map *game)
     mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, bg_image.img_ptr, 0, 0);
 }
 
+// displays the images to the opened window in the correct position according to 2D map array
 void	adding_in_graphics(t_map *game)
 {
 	int 	height;
@@ -100,4 +97,12 @@ void	adding_in_graphics(t_map *game)
 		}
 		height++;
 	}
+}
+
+int	init_graphics(t_map *game)
+{
+	init_background(game);
+	init_game_images(game);
+	adding_in_graphics(game);
+	return (0);
 }

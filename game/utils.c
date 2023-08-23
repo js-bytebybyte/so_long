@@ -1,17 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_file_extension.c                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 10:39:39 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 14:38:51 by jsteenpu         ###   ########.fr       */
+/*   Created: 2023/08/16 13:22:09 by jsteenpu          #+#    #+#             */
+/*   Updated: 2023/08/23 13:12:36 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/so_long.h"// needs to be adjusted??
+#include "../headers/so_long.h"
 
+int	error(char *message)
+{
+	printf("\033[0;31m" " Error\n    %s\n" "\033[0m", message);
+	return (0);
+}
+
+int	terminate_game(t_map *game)
+{
+	int		i;
+	
+	if (game->win_ptr)
+		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	free(game->mlx_ptr);
+	i = 0;
+	if (game->map[i])
+	{
+		while (i < game->rows)
+		{	
+			free(game->map[i]);
+			i++;
+		}
+	}
+	free(game->map);
+	exit(0);
+}
 int	valid_file_extension(char *file_name, char	*file_extension)
 {
 	int	i;

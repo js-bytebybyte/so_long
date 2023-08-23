@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 16:51:53 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/18 16:52:12 by jsteenpu         ###   ########.fr       */
+/*   Created: 2023/04/14 16:00:04 by jsteenpu          #+#    #+#             */
+/*   Updated: 2023/05/09 16:44:27 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/so_long.h"
+#include "libft.h"
 
 static char	*ft_putchar(char *str, unsigned int nbr, int len)
 {
