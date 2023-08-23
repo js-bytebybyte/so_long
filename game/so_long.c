@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/22 13:26:09 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/23 10:43:29 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 	t_map	game;
 	t_img	image;
 	
-	// initialize the variables of t_map game 
+	// initializes the variables of the structures
 	ft_memset(&game, 0, sizeof(t_map));
 	ft_memset(&image, 0, sizeof(t_img));
 	
@@ -60,7 +60,6 @@ int main(int argc, char **argv)
 	
 	// initialize the connection
 	game.mlx_ptr = mlx_init();
-
 	
 	// create new window on the screen
 	game.win_ptr = mlx_new_window(game.mlx_ptr, game.columns * IMG_SIZE, game.rows * IMG_SIZE, "so_long");
@@ -76,7 +75,7 @@ int main(int argc, char **argv)
 	/* ---------------- hooks setup -------------------------*/
 
 	mlx_key_hook(game.win_ptr, *key_controls, &game);
-	//mlx_loop_hook(game.mlx_ptr, *ft_update, &program);
+	mlx_loop_hook(game.mlx_ptr, *update, (void *)&game);
 	printf("the start position: (%d, %d)\n", game.start_y, game.start_x);
 	printf("the exit position: (%d, %d)\n", game.exit_y, game.exit_x);
 

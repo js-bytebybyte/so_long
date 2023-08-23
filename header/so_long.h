@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/22 13:25:26 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/23 10:43:51 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define RIGHT_KEY 2
 # define ESC_KEY 53
 
-# define IMG_SIZE 32
+# define IMG_SIZE 48
 /*----------------------- Structure for game map -------------------------*/
 
 typedef struct s_size
@@ -58,7 +58,7 @@ typedef struct s_map
 	int 	player; // to count the number of players in the game - should only be one
 	int 	exit; // to count the number of exits in the game - should only be one
 	int 	collectibles; // the count the number of collectibles - should be at least one
-	int		moves;
+	int		moves; // to count the number of moves of the player
 	
 	int		start_x;
 	int		start_y;
@@ -70,7 +70,7 @@ typedef struct s_map
 
 	// the  images needed for the graphics
 	void 	*wall;
-	void 	*floor;
+	//void 	*floor;
 	void	*exit_img;
 	void	*collectible_img;
 	void	*background_img;
@@ -89,10 +89,11 @@ void	init_background(t_map *game);
 void	init_game_images(t_map *game);
 void	adding_in_graphics(t_map *game);
 
-//char	*ft_itoa(int n);
-//void	display_moves(t_map	*game);
+
+char	*ft_itoa(int n);
 
 int	key_controls(int keycode, t_map *game);
+int	update(t_map *game);
 
 int	error(char *message);
 
