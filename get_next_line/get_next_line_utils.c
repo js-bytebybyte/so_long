@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:48:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/08 11:58:33 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:53:47 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/get_next_line.h"
+#include "../headers/get_next_line.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

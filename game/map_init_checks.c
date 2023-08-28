@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map_init_checks.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/23 13:23:03 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:38:38 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
+// 1. check if the map .ber file is correct
 
 static int	valid_file(int argc, char *file)
 {
@@ -86,8 +87,8 @@ static int	valid_chars_check(t_map *game)
 
 static void	set_start_and_exit(t_map *game)
 {
-	int x; // move along the columns
-	int	y; // move through the different rows
+	int x; 
+	int	y; 
 
 	y = 0;
 	while (y < game->rows)
@@ -111,8 +112,12 @@ static void	set_start_and_exit(t_map *game)
 	}
 }
 
+// Includes all the check functions and the init of start and exit position 
+
 int	map_init_checks(t_map *game, int argc, char *map_file)
 {
+	int	i;
+	
 	// check if the file as argument is valid
 	if (!valid_file(argc, map_file))
 		return (error("Invalid map file.\n"));
@@ -131,6 +136,19 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 
 	// retrieve the position of the player and the exit
 	set_start_and_exit(game);
+
+	// init the grid to be used to check if there is a valid path
+	if (!init_valid_path(game))
+		return(error("Error while copying the 2D map in the temp grid.\n"));
+
+	// printing the valid_path grid to see if everything is OK
+	i = 0;
+	while(game->valid_path[i])
+		printf("%s\n", game->valid_path[i++]);
+		
+	// check if there is valid path
+	if (!map_path_finder(game, game->start_y, game->start_x))
+		return (error("No valid path found in the map .ber file. The player cannot exit the game.\n"));
 
 	return (1);
 }

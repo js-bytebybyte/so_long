@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/23 13:04:28 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/25 17:36:30 by jolandestee      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_img
 typedef struct s_map
 {
 	char	**map;
+	char	**valid_path;
 	int		fd;
 	int		rows;
 	int		columns;
@@ -92,12 +93,14 @@ typedef struct s_map
 // game utils
 int	error(char *message);
 int	terminate_game(t_map *game);
-int valid_file_extension(char *file_name, char *file_extension);
+int	valid_file_extension(char *file_name, char *file_extension);
 
 
 // map init and checks functions
 int	map_init_checks(t_map *game, int argc, char *map_file);
-int map_reading(t_map *game, char *map_file);
+int	map_reading(t_map *game, char *map_file);
+int init_valid_path(t_map *game);
+int map_path_finder(t_map *game, int current_y, int current_x);
 
 
 // graphics
@@ -108,7 +111,6 @@ void	adding_in_graphics(t_map *game);
 
 
 // hooks functions
-
 int	key_controls(int keycode, t_map *game);
 int	update(t_map *game);
 
