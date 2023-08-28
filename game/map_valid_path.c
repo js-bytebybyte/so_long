@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_valid_path.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
+/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 12:44:14 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/25 17:43:49 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/28 15:35:14 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@ int init_valid_path(t_map *game)
         j = 0;
         while (j < game->columns)
         {
-            // collectibles are not obstacles
-            // if (game->map[i][j] == 'C')
-            //     grid[i][j] = '0';
-            // else    
             game->valid_path[i][j] = game->map[i][j];
             j++;
         }
@@ -46,74 +42,27 @@ int init_valid_path(t_map *game)
     return (1);
 }
 
-static int ft_valid(int newX, int newY, t_map *game) 
-{
-    if (newX < 0)
-        return (error("The column position lays outside of map.\n"));
-    if (newX >= game->columns) // 5 dus van 0 tem 4
-        return (error("The column position lays outside of map.\n")); 
-    if (newY < 0)
-        return (error("The row position lays outside of map.\n"));
-    if (newY >= game->rows) // 3 dus van 0 tem 2 is max
-        return (error("The column position lays outside of map.\n"));
-    if (game->map[newY][newX] == '1')
-        return (error("You've hit a wall.\n"));
-    return (1);
-}
-
-static int move_x(int row_direction)
-{
-    if (row_direction == 2)
-        return (-1);
-    if (row_direction == 3)
-        return (1);
-    return (0);
-}
-
-static int move_y(int row_direction)
-{
-    if (row_direction == 0)
-        return (-1);
-    if (row_direction == 1)
-        return (1);
-    return (0);
-}
-
 int map_path_finder(t_map *game, int current_y, int current_x) 
 {
-    int     i;
-    int     newY;
-    int     newX;
-
-    printf("The current position in path finder: (%d, %d)\n", current_y, current_x);
-    printf("The exit position in path finder: (%d, %d)\n", game->exit_y, game->exit_x);
-   
-    // Destination reached
-    if (current_y == game->exit_y && current_x == game->exit_x)
-        return (1);
+    if (current_y < 0 || current_y >= game->rows || current_x < 0 || current_x >= game->columns) 
+        return 0; // Out of bounds
+    if (game->valid_path[current_y][current_x] == '1' || game->valid_path[current_y][current_x] == 'F' ||game->valid_path[current_y][current_x] == 'E' )
+        return 0; // Already visited or a wall
+    if (game->valid_path[current_y][current_x] == 'C')
+        game->collectibles--;  
     
     // Mark the current position as visited > asign it value 2
-    game->valid_path[current_y][current_x] = 2;
+    game->valid_path[current_y][current_x] = 'F';
     
-    i = 0;
-    while (i < 4) 
-    {
-        newY = current_y + move_y(i);
-        newX = current_x + move_x(i);
-        // if (grid[newY][newX] == 'C')
-        //     game->collectibles--;
-        
-        // check if the new direction is valid and that the value of the position is not visited yet
-        if (ft_valid(newX, newY, game) && game->valid_path[newY][newX] != 2) 
-        {
-            if (map_path_finder(game, newY, newX))//&& game->collectibles == 0)
-            {
-                printf("There is a valid path!\n");
-                return (1);
-            }
-        }
-        i++;
-    }
+    // fill every cell that is not equal to 
+    map_path_finder(game, current_y - 1, current_x); // UP
+    map_path_finder(game, current_y + 1, current_x); // DOWN
+    map_path_finder(game, current_y, current_x - 1); // LEFT 
+    map_path_finder(game, current_y, current_x + 1); // RIGHT
+    
+    if (game->collectibles == 0)
+        return (1);
+
     return (0);
 }
 
