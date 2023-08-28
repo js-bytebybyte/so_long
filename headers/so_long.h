@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
+/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/25 17:36:30 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/28 17:44:41 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@
 
 /*----------------------- Structure for game map -------------------------*/
 
-typedef struct s_size
+typedef struct s_point
 {
-	int	width;
-	int	heigth;
-} 	t_size;
+	int	x;
+	int	y;
+} 	t_point;
 
 typedef struct s_img
 {
@@ -60,7 +60,7 @@ typedef struct s_img
 typedef struct s_map
 {
 	char	**map;
-	char	**valid_path;
+	char	**flood_grid;
 	int		fd;
 	int		rows;
 	int		columns;
@@ -69,21 +69,23 @@ typedef struct s_map
 	int 	collectibles; // the count the number of collectibles - should be at least one
 	int		moves; // to count the number of moves of the player
 	
-	int		start_x;
-	int		start_y;
-	int		exit_x;
-	int		exit_y;
+	// int		start_x;
+	// int		start_y;
+	// int		exit_x;
+	// int		exit_y;
+
+	t_point	start_p;
+	t_point	exit_p;
 
 	void 	*mlx_ptr;
 	void 	*win_ptr;
 
 	// the  images needed for the graphics
 	void 	*wall;
-	//void 	*floor;
 	void	*exit_img;
 	void	*collectible_img;
 	void	*background_img;
-	t_size	*player_img;
+	void	*player_img;
 
 }	t_map;
 

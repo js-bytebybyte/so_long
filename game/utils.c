@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:22:09 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/23 13:12:36 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:07:14 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ int	terminate_game(t_map *game)
 		}
 	}
 	free(game->map);
+	i = 0;
+	if (game->flood_grid[i])
+	{
+		while (i < game->rows)
+		{	
+			free(game->flood_grid[i]);
+			i++;
+		}
+	}
+	free(game->flood_grid);
 	exit(0);
 }
 int	valid_file_extension(char *file_name, char	*file_extension)

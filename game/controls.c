@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/23 13:12:01 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:42:53 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,15 @@ static int	move(t_map *game, int dy, int dx)
 {
     char    target_tile;
 
-    target_tile = game->map[game->start_y + dy][game->start_x + dx];
+    target_tile = game->map[game->start_p.y + dy][game->start_p.x + dx];
     if (target_tile == '0' || target_tile == 'C') 
 	{
         if (target_tile == 'C') 
             game->collectibles--;
-            
-        game->map[game->start_y][game->start_x] = '0';
-        game->start_x += dx;
-        game->start_y += dy;
-        game->map[game->start_y][game->start_x] = 'P';
+        game->map[game->start_p.y][game->start_p.x] = '0';
+        game->start_p.x += dx;
+        game->start_p.y += dy;
+        game->map[game->start_p.y][game->start_p.x] = 'P';
     } 
 	if (target_tile == 'E' && game->collectibles == 0)
 		terminate_game(game);
@@ -46,7 +45,7 @@ int  key_controls(int keycode, t_map *game)
         game->moves += move(game, 0, 1);
     init_background(game);
     adding_in_graphics(game);
-	printf("moves: %d\n", game->moves);
-    //printf("the number of tokens left to collect: %d\n", game->collectibles);
+	printf("moves -> %d\n", game->moves);
+    printf("the number of tokens left to collect: %d\n", game->collectibles);
 	return (0);
 }

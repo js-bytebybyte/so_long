@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/23 13:12:11 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:28:11 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,9 @@ void	init_game_images(t_map *game)
 	int		y;
 
 	game->wall = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/cactus.xpm", &x, &y);
-	printf("the wall image width: %d\n", x);
-	printf("the wall image heigth: %d\n", y);
 	game->exit_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/castle_32px.xpm", &x, &y);
-	printf("the exit image width: %d\n", x);
-	printf("the exit image heigth: %d\n", y);
 	game->collectible_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/mushroom.xpm", &x, &y);
-	printf("the collectibles image width: %d\n", x);
-	printf("the collectibles imgage heigth: %d\n", y);
 	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr, "game_images/tile000.xpm", &x, &y);
-	printf("the player image width: %d\n", x);
-	printf("the player imgage heigth: %d\n", y);
 }
 
 void	init_background(t_map *game)
@@ -43,7 +35,7 @@ void	init_background(t_map *game)
     bg_image.address = mlx_get_data_addr(bg_image.img_ptr, &bg_image.bpp, &bg_image.line_len, &bg_image.endian);
 
     bg_image.color = 0x347434;
-    if (bg_image.bpp != 32)
+	if (bg_image.bpp != 32)
         bg_image.color = mlx_get_color_value(game->mlx_ptr, bg_image.color);
     y = 0;
     while (y < game->rows * IMG_SIZE)
@@ -73,7 +65,7 @@ void	init_background(t_map *game)
     mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, bg_image.img_ptr, 0, 0);
 }
 
-// displays the images to the opened window in the correct position according to 2D map array
+// displays the images on the opened window in the correct position according to 2D map array
 void	adding_in_graphics(t_map *game)
 {
 	int 	height;

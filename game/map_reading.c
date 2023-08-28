@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_reading.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
+/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/25 17:49:13 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/28 17:25:46 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int	map_reading(t_map *game, char *map_file)
 			break;
 		allocate_rows(game, line);
 	}
-	printf("the number of rows in map_reading: %d\n", game->rows);
 	
 	// segfault protection if the opened file == NULL
 	if (!line && !game->map)
@@ -92,6 +91,6 @@ int	map_reading(t_map *game, char *map_file)
 	
 	// count the number of columns
 	game->columns = count_columns(game->map[0]);
-	printf("the number of columns in map_reading: %d\n", game->columns);
+
 	return (1);
 }
