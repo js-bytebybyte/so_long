@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/28 17:25:46 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:43:37 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,13 @@ int	map_reading(t_map *game, char *map_file)
 	char	*line;
 	
 	game->fd = open(map_file, O_RDONLY);
-	if (game->fd < 3) // I don't want to read from standard I/O - ERROR
+	if (game->fd < 0) 
 		return (error("File opening failure."));
-	while (1)
+	line = get_next_line(game->fd);
+	while (line)
 	{
-		line = get_next_line(game->fd);
-		if (!line)
-			break;
 		allocate_rows(game, line);
+		line = get_next_line(game->fd);
 	}
 	
 	// segfault protection if the opened file == NULL

@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/29 12:22:14 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:41:33 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 static int	valid_file(int argc, char *file)
 {
-	if (!argc || !file)
+	if (!argc)
 		return (error("Valid file failure."));
 	if (argc == 1)
-		return (error("Please provide 1 map .ber file as argument."));
+		return (error("Please provide 1 map.ber file as argument."));
 	if (argc > 2)
-		return (error("Please provide just one map .ber file."));
+		return (error("Please provide just one map.ber file."));
 	if (!valid_file_extension(file, ".ber"))
 		return (error("The file extension is incorrect. Please provide a .ber file."));
 	return (1);
@@ -120,9 +120,8 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 {
 	int	tokens;
 
-	tokens = game->collectibles;
 	if (!valid_file(argc, map_file))
-		return (error("Invalid map file.\n"));
+		return (0);
 	if (!map_reading(game, map_file))
 		return (error("Error while reading map.\n"));
 	if (!walls_check(game))
@@ -130,6 +129,8 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 	if (!valid_chars_check(game))
 		return (error("The map is missing and/or contains invalid/too many characters.\n"));
 	set_start_and_exit(game);
+	tokens = game->collectibles;
+	printf("the number of tokens: %d\n", tokens);
 	if (!init_valid_path(game))
 		return(error("Error while copying the 2D map in the temp grid.\n"));
 	if (!map_path_finder(game, game->start_p.y, game->start_p.x, tokens))
@@ -137,8 +138,14 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 		int	i;
 		i = 0;
 		while (game->flood_grid[i])
-			printf("%s\n", game->flood_grid[i++]);
+		printf("%s\n", game->flood_grid[i++]);
 		return (error("No valid path found in the map .ber file. The player cannot exit the game.\n"));
 	}
 	return (1);
 }
+
+
+	// int	i;
+	// i = 0;
+	// while (game->flood_grid[i])
+	// 	printf("%s\n", game->flood_grid[i++]);

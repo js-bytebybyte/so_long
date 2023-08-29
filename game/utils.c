@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:22:09 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/29 10:28:28 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:19:52 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,12 @@ int	valid_file_extension(char *file_name, char	*file_extension)
 	if (!file_name || !file_extension)
 		return (0);
 	i = 0;
-	while (file_name[i])
+	while (file_name[i] && file_name[i] != '.')
 		i++;
 	j = 0;
-	while (file_extension[j] && file_name[i - 4] == file_extension[j])
-	{
-		i++;
+	while (file_extension[j] && file_name[i + j] == file_extension[j])
 		j++;
-	}
-	if (j == 4)
+	if (j == 4 && file_name[i + j] == '\0')
 		return (1); // this is a match - the file has the right extension
 	return (0); // no match - the file doesn't have the correct extension
 }

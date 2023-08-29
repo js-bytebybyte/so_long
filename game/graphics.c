@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/28 17:28:11 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 15:58:12 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,15 @@ void	adding_in_graphics(t_map *game)
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->wall, width * IMG_SIZE, height * IMG_SIZE);
 			if (game->map[height][width] == 'C') // collectible
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->collectible_img, width * IMG_SIZE, height * IMG_SIZE);
-			if (game->map[height][width] == 'P') // player
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, width * IMG_SIZE, height * IMG_SIZE);
+			// if (game->map[height][width] == 'P') // player
+			// 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, width * IMG_SIZE, height * IMG_SIZE);
 			if (game->map[height][width] == 'E') // exit
 				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_img, width * IMG_SIZE, height * IMG_SIZE);
 			width++;
 		}
 		height++;
 	}
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, game->start_p.x * IMG_SIZE, game->start_p.y * IMG_SIZE);
 }
 
 int	init_graphics(t_map *game)

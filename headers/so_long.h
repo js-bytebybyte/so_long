@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/29 12:01:19 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:07:29 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ typedef struct s_map
 	void 	*mlx_ptr;
 	void 	*win_ptr;
 
-	// the  images needed for the graphics
 	void 	*wall;
 	void	*exit_img;
 	void	*collectible_img;
