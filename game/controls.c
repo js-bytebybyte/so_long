@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/29 12:22:07 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:24:27 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int  key_controls(int keycode, t_map *game)
 {
 	if (keycode == ESC_KEY)
 		terminate_game(game);
-	if (keycode == UP_KEY)
+	if (keycode == UP_KEY || keycode == 126)
         game->moves += move(game, -1, 0);
-	if (keycode == DOWN_KEY)
+	if (keycode == DOWN_KEY || keycode == 125)
         game->moves +=move(game, 1, 0);
- 	if (keycode == LEFT_KEY)
+ 	if (keycode == LEFT_KEY || keycode == 123)
         game->moves += move(game, 0, -1);
-    if (keycode == RIGHT_KEY)
+    if (keycode == RIGHT_KEY || keycode == 124)
         game->moves += move(game, 0, 1);
     init_background(game);
     adding_in_graphics(game);
