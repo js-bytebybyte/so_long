@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 12:44:14 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/29 15:29:15 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:29:07 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int init_valid_path(t_map *game)
     return (1);
 }
 
-int map_path_finder(t_map *game, int current_y, int current_x, int tokens)
+int map_path_finder(t_map *game, int current_y, int current_x, int *tokens)
 {
     printf("(y: %d, x: %d)\n", current_y, current_x);
-    printf("the number of tokens boven: %d\n", tokens);
+    printf("the number of tokens boven: %d\n", *tokens);
     printf("the number of exits at the start: %d\n", game->exit);
     if (current_y < 0 || current_y >= game->rows || current_x < 0 || current_x >= game->columns) 
         return (0); 
@@ -52,13 +52,13 @@ int map_path_finder(t_map *game, int current_y, int current_x, int tokens)
     if (game->flood_grid[current_y][current_x] == '1' || game->flood_grid[current_y][current_x] == 'F')
         return (0); 
    
-    if (game->flood_grid[current_y][current_x] == 'C')
-        tokens--;
+    if (game->flood_grid[current_y][current_x] == 'C' || game->flood_grid[current_y][current_x] == 'E' )
+        (*tokens)--;
         
     // I need to know if the exit is also accessible 
-    if (game->flood_grid[current_y][current_x] == 'E')
-        game->exit--;      
-    if (tokens == 0 && game->exit == 0)
+    // if (game->flood_grid[current_y][current_x] == 'E')
+    //     game->exit--;      
+    if (*tokens == 0)
         return (1);
         
     // Mark the current position as flooded ('F')
@@ -72,7 +72,7 @@ int map_path_finder(t_map *game, int current_y, int current_x, int tokens)
         return (1);
         
     // the map is valid only if all tokens have been 'flooded';
-    printf("the number of tokens onder: %d\n", tokens);
+    printf("the number of tokens onder: %d\n", *tokens);
    
     return (0);
 }

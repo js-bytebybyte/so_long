@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/29 15:58:12 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:22:00 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,9 @@ void	adding_in_graphics(t_map *game)
 
 int	init_graphics(t_map *game)
 {
+	t_img	image;
+	
+	ft_memset(&image, 0, sizeof(t_img));
 	init_background(game);
 	init_game_images(game);
 	adding_in_graphics(game);

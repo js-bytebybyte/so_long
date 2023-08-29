@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/29 13:07:29 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:33:22 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,10 @@ typedef struct s_map
 	int 	exit; // to count the number of exits in the game - should only be one
 	int 	collectibles; // the count the number of collectibles - should be at least one
 	int		moves; // to count the number of moves of the player
-	
 	t_point	start_p;
 	t_point	exit_p;
-
 	void 	*mlx_ptr;
 	void 	*win_ptr;
-
 	void 	*wall;
 	void	*exit_img;
 	void	*collectible_img;
@@ -96,7 +93,7 @@ int	valid_file_extension(char *file_name, char *file_extension);
 int	map_init_checks(t_map *game, int argc, char *map_file);
 int	map_reading(t_map *game, char *map_file);
 int init_valid_path(t_map *game);
-int map_path_finder(t_map *game, int current_y, int current_x, int tokens);
+int map_path_finder(t_map *game, int current_y, int current_x, int *tokens);
 
 
 // graphics

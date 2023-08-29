@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/29 10:38:03 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:22:03 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 int main(int argc, char **argv)
 {
 	t_map	game;
-	t_img	image;
 
 	// initializes the variables of the structures
 	ft_memset(&game, 0, sizeof(t_map));
-	ft_memset(&image, 0, sizeof(t_img));
 	
 	// map validation checks + reading map
 	if (!map_init_checks(&game, argc, argv[1]))

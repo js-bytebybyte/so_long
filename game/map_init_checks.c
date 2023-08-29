@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/29 13:41:33 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 16:24:10 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,18 +129,12 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 	if (!valid_chars_check(game))
 		return (error("The map is missing and/or contains invalid/too many characters.\n"));
 	set_start_and_exit(game);
-	tokens = game->collectibles;
+	tokens = game->collectibles + game->exit;
 	printf("the number of tokens: %d\n", tokens);
 	if (!init_valid_path(game))
 		return(error("Error while copying the 2D map in the temp grid.\n"));
-	if (!map_path_finder(game, game->start_p.y, game->start_p.x, tokens))
-	{
-		int	i;
-		i = 0;
-		while (game->flood_grid[i])
-		printf("%s\n", game->flood_grid[i++]);
+	if (!map_path_finder(game, game->start_p.y, game->start_p.x, &tokens))
 		return (error("No valid path found in the map .ber file. The player cannot exit the game.\n"));
-	}
 	return (1);
 }
 
