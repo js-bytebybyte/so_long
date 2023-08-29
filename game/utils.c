@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:22:09 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/28 16:07:14 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 10:28:28 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	error(char *message)
 {
-	printf("\033[0;31m" " Error\n    %s\n" "\033[0m", message);
+	printf("\033[0;31m" " Error: %s\n" "\033[0m", message);
 	return (0);
 }
 

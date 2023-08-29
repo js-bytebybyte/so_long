@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 12:44:14 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/28 17:39:57 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:02:52 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,33 +40,34 @@ int init_valid_path(t_map *game)
     return (1);
 }
 
-int map_path_finder(t_map *game, int current_y, int current_x) 
+int map_path_finder(t_map *game, int current_y, int current_x, int tokens)
 {
-    int tokens;
-    
-    tokens = game->collectibles;
     if (current_y < 0 || current_y >= game->rows || current_x < 0 || current_x >= game->columns) 
         return 0; 
-    if (game->flood_grid[current_y][current_x] == '1' || 
-        game->flood_grid[current_y][current_x] == 'F' ||
-        game->flood_grid[current_y][current_x] == 'E' )
+    if (game->flood_grid[current_y][current_x] == '1' || game->flood_grid[current_y][current_x] == 'F')
         return 0; 
     if (game->flood_grid[current_y][current_x] == 'C')
-        tokens--;  
-    
+    {
+        game->flood_grid[current_y][current_x] = 'F';    
+        tokens--;
+    }
+    if (game->flood_grid[current_y][current_x] == 'E')
+    {
+        game->flood_grid[current_y][current_x] = 'F';    
+        game->exit--;
+    } 
     // Mark the current position as flooded ('F')
     game->flood_grid[current_y][current_x] = 'F';
     
     // recursive call for every direction possible
-    map_path_finder(game, current_y - 1, current_x); // UP
-    map_path_finder(game, current_y + 1, current_x); // DOWN
-    map_path_finder(game, current_y, current_x - 1); // LEFT 
-    map_path_finder(game, current_y, current_x + 1); // RIGHT
+    map_path_finder(game, current_y - 1, current_x, tokens); // UP
+    map_path_finder(game, current_y + 1, current_x, tokens); // DOWN
+    map_path_finder(game, current_y, current_x - 1, tokens); // LEFT 
+    map_path_finder(game, current_y, current_x + 1, tokens); // RIGHT
 
-    // the map is valid only if all tokenss have been encountered
-    if (tokens == 0)
+    // the map is valid only if all tokens have been 'flooded'
+    if (tokens == 0 && game->exit == 0)
         return (1);
     
     return (0);
 }
-

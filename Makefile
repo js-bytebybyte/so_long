@@ -6,13 +6,13 @@
 #    By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 14:19:41 by jsteenpu          #+#    #+#              #
-#    Updated: 2023/08/22 13:25:14 by jsteenpu         ###   ########.fr        #
+#    Updated: 2023/08/29 10:29:06 by jsteenpu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # Executable file / name
-NAME = so_long.out
+NAME = so_long
 
 # Compiler and flags
 CC = cc

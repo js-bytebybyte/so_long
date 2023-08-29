@@ -6,13 +6,13 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/28 17:43:47 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:22:14 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-/* 1. check if the map .ber file is correct*/ 
+/* 1. check if the map .ber file is correct */ 
 
 static int	valid_file(int argc, char *file)
 {
@@ -28,6 +28,7 @@ static int	valid_file(int argc, char *file)
 }
 
 /* 2. The map must be closed/surrounded by walls. */
+
 static int walls_check(t_map *game)
 {
 	int	i;
@@ -49,7 +50,8 @@ static int walls_check(t_map *game)
 	return (1);
 }
 
-/* 3. The map can be composed of only these 5 characters */
+/* 3. The map can only be composed of the following 5 characters */
+
 static int	valid_chars_check(t_map *game)
 {
 	int i;
@@ -61,7 +63,8 @@ static int	valid_chars_check(t_map *game)
 		j = 0;
 		while (j < game->columns - 1) 
 		{
-			if (game->map[i][j] != '1' && game->map[i][j] != '0' && game->map[i][j] != 'C' && game->map[i][j] != 'E' && game->map[i][j] != 'P')
+			if (game->map[i][j] != '1' && game->map[i][j] != '0' && game->map[i][j] != 'C' 
+				&& game->map[i][j] != 'E' && game->map[i][j] != 'P')
 				return (0);
 			if (game->map[i][j] == 'P')
 				game->player++;
@@ -81,6 +84,7 @@ static int	valid_chars_check(t_map *game)
 }
 
 /* if all OK, look for the player's start and the exit position */
+
 static void	set_start_and_exit(t_map *game)
 {
 	int x; 
@@ -96,11 +100,13 @@ static void	set_start_and_exit(t_map *game)
 			{
 				game->start_p.x = x;
 				game->start_p.y = y;
+				printf("Map init: the start position (y: %d, x: %d)\n", game->start_p.y, game->start_p.x);
 			}
 			if (game->map[y][x] == 'E')
 			{
 				game->exit_p.x = x;
 				game->exit_p.y = y;
+				printf("Map init: the exit position (y: %d, x: %d)\n", game->exit_p.y, game->exit_p.x);
 			}
 			x++;
 		}
@@ -112,6 +118,9 @@ static void	set_start_and_exit(t_map *game)
 
 int	map_init_checks(t_map *game, int argc, char *map_file)
 {
+	int	tokens;
+
+	tokens = game->collectibles;
 	if (!valid_file(argc, map_file))
 		return (error("Invalid map file.\n"));
 	if (!map_reading(game, map_file))
@@ -123,7 +132,13 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 	set_start_and_exit(game);
 	if (!init_valid_path(game))
 		return(error("Error while copying the 2D map in the temp grid.\n"));
-	if (!map_path_finder(game, game->start.y, game->start.x))
+	if (!map_path_finder(game, game->start_p.y, game->start_p.x, tokens))
+	{
+		int	i;
+		i = 0;
+		while (game->flood_grid[i])
+			printf("%s\n", game->flood_grid[i++]);
 		return (error("No valid path found in the map .ber file. The player cannot exit the game.\n"));
+	}
 	return (1);
 }

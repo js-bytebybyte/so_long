@@ -1,0 +1,400 @@
+the start position  (y: 3, x: 1)
+the exit position  (y: 3, x: 6)
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 1)
+the position value: P
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 1)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 1)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 1)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 1)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 0)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 2)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 2)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 2)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 2)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 2)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 2)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 4, x: 2)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 1)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 3)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 3)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 3)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 3)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 2)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 4)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 4)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 4)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 4)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 3)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 5)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 5)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 5)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 4)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 6)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 6)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 6)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 5)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 7)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 7)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 7)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 6)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 8)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 8)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 8)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 7)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 9)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 9)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 9)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 8)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 10)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 10)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 10)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 10)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 10)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 10)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 4, x: 10)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 9)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 9)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 4, x: 9)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 8)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 8)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 4, x: 8)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 7)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 7)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 4, x: 7)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 6)
+the position value: E
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 8)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 9)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 10)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 11)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 11)
+the position value: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 11)
+the position value: C
+OK
+the number of tokens to gather: 0
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 0, x: 11)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 11)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 10)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 12)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 11)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 10)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 12)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 4, x: 11)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 10)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 12)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 9)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 11)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 9)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 11)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 4)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 3)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 5)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 4, x: 3)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 2)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 4)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 1)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 3)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 1)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 1, x: 3)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 1)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 0)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 2, x: 2)
+the position value: F
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 4, x: 1)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 0)
+the position value: 1
+the number of rows: 5 - the number of colomns: 13
+the number of tokens to gather: 1
+the start position  (y: 3, x: 2)
+the position value: F
+1111111111111
+1FF1FFFFFFFF1
+1FFFF11111FF1
+1FFF11EFFFFF1
+1111111111111
+[0;31m Error: No valid path found in the map .ber file. The player cannot exit the game.
+
+[0m

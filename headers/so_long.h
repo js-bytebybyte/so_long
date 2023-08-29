@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/28 17:44:41 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:01:19 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,6 @@ typedef struct s_map
 	int 	collectibles; // the count the number of collectibles - should be at least one
 	int		moves; // to count the number of moves of the player
 	
-	// int		start_x;
-	// int		start_y;
-	// int		exit_x;
-	// int		exit_y;
-
 	t_point	start_p;
 	t_point	exit_p;
 
@@ -98,11 +93,11 @@ int	terminate_game(t_map *game);
 int	valid_file_extension(char *file_name, char *file_extension);
 
 
-// map init and checks functions
+// 2D map array initialization and map.ber file check functions
 int	map_init_checks(t_map *game, int argc, char *map_file);
 int	map_reading(t_map *game, char *map_file);
 int init_valid_path(t_map *game);
-int map_path_finder(t_map *game, int current_y, int current_x);
+int map_path_finder(t_map *game, int current_y, int current_x, int tokens);
 
 
 // graphics

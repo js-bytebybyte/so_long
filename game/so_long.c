@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/28 16:27:55 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/29 10:38:03 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	// map validation checks + reading map
 	if (!map_init_checks(&game, argc, argv[1]))
 	{
-		terminate_game(&game);
+		//terminate_game(&game);
 		return (0);
 	}
 	
