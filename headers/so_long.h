@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:06:26 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:23:17 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_map
 	int		collectibles;
 	int		moves;
 
-	t_point	start_p;
+	t_point	player_p;
 	t_point	exit_p;
 
 	void	*mlx_ptr;

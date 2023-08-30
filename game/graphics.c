@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:06:00 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:22:27 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	adding_in_graphics(t_map *game)
 		y++;
 	}
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player_img, 
-		game->start_p.x * IMG_SIZE, game->start_p.y * IMG_SIZE);
+		game->player_p.x * IMG_SIZE, game->player_p.y * IMG_SIZE);
 }
 
 void	init_game_images(t_map *game)

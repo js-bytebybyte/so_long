@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:05:41 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:23:05 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,8 @@ static void	set_start_and_exit(t_map *game)
 		{
 			if (game->map[y][x] == 'P')
 			{
-				game->start_p.x = x;
-				game->start_p.y = y;
+				game->player_p.x = x;
+				game->player_p.y = y;
 			}
 			if (game->map[y][x] == 'E')
 			{
@@ -125,7 +125,7 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 	tokens = game->collectibles + game->exit;
 	if (!init_valid_path(game))
 		return (error("Issue with the creation of the flood grid.\n"));
-	if (!map_path_finder(game, game->start_p.y, game->start_p.x, &tokens))
+	if (!map_path_finder(game, game->player_p.y, game->player_p.x, &tokens))
 		return (error("No valid path found.\n"));
 	return (1);
 }
