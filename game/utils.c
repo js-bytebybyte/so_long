@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:22:09 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:00:31 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:44:37 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	ft_free_array(char	**array)
 {
 	int	i;
 
-	i = 0;
 	if (!array)
 		return ;
+	i = 0;
 	if (array[i])
 	{
 		while (array[i])
@@ -56,6 +56,8 @@ void	ft_free_array(char	**array)
 
 int	terminate_game(t_map *game)
 {
+	if (!game)
+		return (0);
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	free(game->mlx_ptr);

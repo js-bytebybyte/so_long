@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:23:17 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:35:35 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	ft_free_array(char **array);
 // 2D map array initialization and map.ber file check functions
 int		map_init_checks(t_map *game, int argc, char *map_file);
 int		map_reading(t_map *game, char *map_file);
-int		init_valid_path(t_map *game);
+int		init_flood_grid(t_map *game);
 int		map_path_finder(t_map *game, int current_y, int current_x, int *tokens);
 
 // graphics

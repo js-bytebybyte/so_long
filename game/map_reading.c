@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 15:54:01 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:31:48 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	map_reading(t_map *game, char *map_file)
 {
 	char	*line;
 
+	if (!game || !map_file)
+		return (0);
 	game->fd = open(map_file, O_RDONLY);
 	if (game->fd < 0) 
 		return (error("Failure to open the map file."));

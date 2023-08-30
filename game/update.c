@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:38:16 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 15:54:54 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:40:58 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	display_moves(t_map	*game)
 
 int	update(t_map *game)
 {
+	if (!game)
+		return (0);
 	display_moves(game);
 	return (0);
 }

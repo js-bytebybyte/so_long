@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:23:05 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 16:34:55 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,17 +113,19 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 {
 	int	tokens;
 
+	if (!game || !argc || !map_file)
+		return (0);
 	if (!valid_file(argc, map_file))
 		return (0);
 	if (!map_reading(game, map_file))
 		return (error("Failure to read the map.\n"));
 	if (!walls_check(game))
-		return (error("Issue with map walls.\n"));
+		return (error("Issue with the map walls.\n"));
 	if (!valid_chars_check(game))
 		return (error("Missing and/or invalid/too many characters.\n"));
 	set_start_and_exit(game);
 	tokens = game->collectibles + game->exit;
-	if (!init_valid_path(game))
+	if (!init_flood_grid(game))
 		return (error("Issue with the creation of the flood grid.\n"));
 	if (!map_path_finder(game, game->player_p.y, game->player_p.x, &tokens))
 		return (error("No valid path found.\n"));
