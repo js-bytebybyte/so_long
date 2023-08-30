@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/29 16:03:46 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:51:20 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	move(t_map *game, int dy, int dx)
     char    target_tile;
     
     target_tile = game->map[game->start_p.y + dy][game->start_p.x + dx];
-    if (target_tile == '0' || target_tile == 'C')
+    if (target_tile == '0' || target_tile == 'C' || target_tile == 'P')
 	{
         if (target_tile == 'C')
             game->collectibles--;
@@ -32,8 +32,6 @@ static int	move(t_map *game, int dy, int dx)
         if (game->collectibles == 0)
             terminate_game(game);
     }
-	// if (target_tile == 'E' && game->collectibles == 0)
-	// 	terminate_game(game);
     return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/29 16:24:10 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:54:21 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	valid_file(int argc, char *file)
 	if (argc > 2)
 		return (error("Please provide just one map.ber file."));
 	if (!valid_file_extension(file, ".ber"))
-		return (error("The file extension is incorrect. Please provide a .ber file."));
+		return (error("Incorrect file extension. Please provide a .ber file."));
 	return (1);
 }
 
@@ -61,7 +61,7 @@ static int	valid_chars_check(t_map *game)
 	while (i < game->rows)
 	{
 		j = 0;
-		while (j < game->columns - 1) 
+		while (j < game->columns) 
 		{
 			if (game->map[i][j] != '1' && game->map[i][j] != '0' && game->map[i][j] != 'C' 
 				&& game->map[i][j] != 'E' && game->map[i][j] != 'P')
@@ -123,7 +123,7 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 	if (!valid_file(argc, map_file))
 		return (0);
 	if (!map_reading(game, map_file))
-		return (error("Error while reading map.\n"));
+		return (error("Failure to read the map.\n"));
 	if (!walls_check(game))
 		return (error("The map is not surrounded by walls and/or is not a rectangle.\n"));
 	if (!valid_chars_check(game))
