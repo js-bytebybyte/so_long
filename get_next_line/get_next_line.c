@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jolandesteenput <jolandesteenput@studen    +#+  +:+       +#+        */
+/*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 14:35:15 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/23 16:53:50 by jolandestee      ###   ########.fr       */
+/*   Updated: 2023/08/30 15:55:58 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	*read_line(int fd, char *stash)
 	char	*buffer;
 
 	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
-    if (!buffer)
+	if (!buffer)
 		return (NULL);
 	chars_read = 1;
 	while ((ft_strchr(stash, '\n') == 0) && chars_read != 0)

@@ -6,7 +6,7 @@
 #    By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 14:19:41 by jsteenpu          #+#    #+#              #
-#    Updated: 2023/08/29 10:29:06 by jsteenpu         ###   ########.fr        #
+#    Updated: 2023/08/30 12:42:10 by jsteenpu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,6 @@ LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 
 all: $(NAME)
 
-# how is the executable file created ? 
-# $^ refers to all the prerequisites = object files 
 $(NAME): $(GAME_OBJS) $(GNL_OBJS) $(LIBFT_OBJS)
 	$(CC) $(CFLAGS) $(LINKS) -o $@ $^
 
