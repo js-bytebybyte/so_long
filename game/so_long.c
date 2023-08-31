@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/31 11:07:05 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 13:16:48 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	init_graphics(&game);
 	mlx_key_hook(game.win_ptr, *key_controls, &game);
 	mlx_loop_hook(game.mlx_ptr, *update, (void *)&game);
+	mlx_hook(game.win_ptr, 17, 0, (void *)exit, 0);
 	mlx_loop(game.mlx_ptr);
 	return (0);
 }
