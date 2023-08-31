@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/30 16:24:44 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:48:40 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int	key_controls(int keycode, t_map *game)
 		game->moves += move(game, 0, 1);
 	init_background(game);
 	adding_in_graphics(game);
-	printf("moves -> %d\n", game->moves);
+	ft_printf("moves -> %d\n", game->moves);
 	return (0);
 }

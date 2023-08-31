@@ -55,8 +55,3 @@ dkms.conf
 .DS_store
 .vscode/
 
-# minilibX
-minilibX/
-minilibx_mms_20200219/
-minilibx-linux/
-mlx/
