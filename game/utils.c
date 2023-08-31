@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:22:09 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:44:37 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:14:51 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,7 @@
 
 int	error(char *message)
 {
-	printf("\033[0;31m" "Error: %s\n" "\033[0m", message);
-	return (0);
-}
-
-int	valid_file_extension(char *file_name, char *file_extension)
-{
-	int	i;
-	int	j;
-
-	if (!file_name || !file_extension)
-		return (0);
-	i = 0;
-	while (file_name[i] && file_name[i] != '.')
-		i++;
-	j = 0;
-	while (file_extension[j] && file_name[i + j] == file_extension[j])
-		j++;
-	if (j == 4 && file_name[i + j] == '\0')
-		return (1);
+	ft_printf("\033[0;31m" "Error: %s\n" "\033[0m", message);
 	return (0);
 }
 

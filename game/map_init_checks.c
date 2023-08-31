@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:34:55 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:20:54 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,23 @@
 
 /* 1. check if the map file is provided and correct */ 
 
-static int	valid_file(int argc, char *file)
+static int	valid_file_extension(char *file_name, char *file_extension)
 {
-	if (!argc || !file)
-		return (error("Valid file failure."));
-	if (argc > 2)
-		return (error("Please provide just one map.ber file."));
-	if (!valid_file_extension(file, ".ber"))
-		return (error("Incorrect file extension. Please provide a .ber file."));
-	return (1);
-}
+	int	i;
+	int	j;
 
+	if (!file_name || !file_extension)
+		return (0);
+	i = 0;
+	while (file_name[i] && file_name[i] != '.')
+		i++;
+	j = 0;
+	while (file_extension[j] && file_name[i + j] == file_extension[j])
+		j++;
+	if (j == 4 && file_name[i + j] == '\0')
+		return (1);
+	return (0);
+}
 /* 2. The map must be closed/surrounded by walls. */
 
 static int	walls_check(t_map *game)
@@ -115,14 +121,14 @@ int	map_init_checks(t_map *game, int argc, char *map_file)
 
 	if (!game || !argc || !map_file)
 		return (0);
-	if (!valid_file(argc, map_file))
-		return (0);
+	if (!valid_file_extension(map_file, ".ber"))
+		return (error("This is not a valid .ber file.\n"));
 	if (!map_reading(game, map_file))
 		return (error("Failure to read the map.\n"));
 	if (!walls_check(game))
 		return (error("Issue with the map walls.\n"));
 	if (!valid_chars_check(game))
-		return (error("Missing and/or invalid/too many characters.\n"));
+		return (error("Missing/invalid/too many characters.\n"));
 	set_start_and_exit(game);
 	tokens = game->collectibles + game->exit;
 	if (!init_flood_grid(game))

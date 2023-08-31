@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:41:08 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:05:47 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:07:05 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_map	game;
 
+	if (argc != 2)
+		return (error("Please provide just one map.ber file.\n"));
 	ft_memset(&game, 0, sizeof(t_map));
 	if (!map_init_checks(&game, argc, argv[1]))
 	{

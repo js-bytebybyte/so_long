@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:56:07 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:35:35 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 11:30:46 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 # include "../mlx/mlx.h"
 # include "get_next_line.h"
+# include "ft_printf.h"
 # include "libft.h"
-# include <stdio.h>
 # include <fcntl.h>
 # include <unistd.h>
 
@@ -84,7 +84,6 @@ typedef struct s_map
 // game utils
 int		error(char *message);
 int		terminate_game(t_map *game);
-int		valid_file_extension(char *file_name, char *file_extension);
 void	ft_free_array(char **array);
 
 // 2D map array initialization and map.ber file check functions
