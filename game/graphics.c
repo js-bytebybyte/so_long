@@ -6,14 +6,14 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 16:22:27 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:38:33 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-// displays the images in the correct position according to 2D map array
-void	adding_in_graphics(t_map *game)
+// displays the images in the correct position according to map
+void	display_graphics(t_map *game)
 {
 	int	y;
 	int	x;
@@ -53,7 +53,7 @@ void	init_game_images(t_map *game)
 	game->collectible_img = mlx_xpm_file_to_image(game->mlx_ptr,
 			"game_images/mushroom.xpm", &x, &y);
 	game->player_img = mlx_xpm_file_to_image(game->mlx_ptr, 
-			"game_images/tile000.xpm", &x, &y);
+			"game_images/player.xpm", &x, &y);
 }
 
 static void	set_background_color(t_img *bg_img, t_map *game)
@@ -86,9 +86,10 @@ void	init_background(t_map *game)
 
 	bg_img.img_ptr = mlx_new_image(game->mlx_ptr, 
 			game->columns * IMG_SIZE, game->rows * IMG_SIZE);
+	if (bg_img.img_ptr == NULL)
+		exit(EXIT_FAILURE);
 	bg_img.address = mlx_get_data_addr(bg_img.img_ptr, 
 			&bg_img.bpp, &bg_img.line_len, &bg_img.endian);
-	bg_img.color = 0x347434;
 	set_background_color(&bg_img, game);
 	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, 
 		bg_img.img_ptr, 0, 0);
@@ -101,6 +102,6 @@ int	init_graphics(t_map *game)
 	ft_memset(&image, 0, sizeof(t_img));
 	init_background(game);
 	init_game_images(game);
-	adding_in_graphics(game);
+	display_graphics(game);
 	return (0);
 }

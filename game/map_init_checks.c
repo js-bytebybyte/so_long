@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 15:44:36 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/31 11:20:54 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:17:48 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ static int	valid_file_extension(char *file_name, char *file_extension)
 	int	i;
 	int	j;
 
-	if (!file_name || !file_extension)
-		return (0);
 	i = 0;
 	while (file_name[i] && file_name[i] != '.')
 		i++;
@@ -115,12 +113,10 @@ static void	set_start_and_exit(t_map *game)
 
 // Includes all the check functions + sets start and exit position 
 
-int	map_init_checks(t_map *game, int argc, char *map_file)
+int	map_init_checks(t_map *game, char *map_file)
 {
 	int	tokens;
 
-	if (!game || !argc || !map_file)
-		return (0);
 	if (!valid_file_extension(map_file, ".ber"))
 		return (error("This is not a valid .ber file.\n"));
 	if (!map_reading(game, map_file))

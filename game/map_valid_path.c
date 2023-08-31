@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 12:44:14 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/30 16:38:38 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:18:47 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	init_flood_grid(t_map *game)
 	int	i;
 	int	j;
 
-	if (!game)
-		return (0);
 	game->flood_grid = malloc(sizeof(char *) * (game->rows + 1)); 
 	if (!game->flood_grid)
 		return (0);
@@ -43,10 +41,8 @@ int	init_flood_grid(t_map *game)
 
 int	map_path_finder(t_map *game, int current_y, int current_x, int *tokens)
 {
-	if (!game || !tokens || !current_y || !current_x)
-		return (0);
 	if (current_y < 0 || current_y >= game->rows || 
-		current_x < 0 || current_x >= game->columns) 
+		current_x < 0 || current_x >= game->columns)
 		return (0);
 	if (game->flood_grid[current_y][current_x] == '1' || 
 		game->flood_grid[current_y][current_x] == 'F')

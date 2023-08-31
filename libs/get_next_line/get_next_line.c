@@ -6,11 +6,11 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 14:35:15 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/30 15:55:58 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:51:11 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/get_next_line.h"
+#include "../../headers/get_next_line.h"
 
 /*
 Deletes the first line (=line ending with \n) from stash

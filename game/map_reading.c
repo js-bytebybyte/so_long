@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/31 11:06:45 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:15:16 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static int	count_columns(char *map_row)
 {
 	int	i;
 
-	if (!map_row)
-		return (0);
 	i = 0;
 	while (map_row[i] && map_row[i] != '\n')
 		i++;
@@ -29,8 +27,6 @@ static int	allocate_rows(t_map *game, char *line)
 	char	**temp;
 	int		i;
 
-	if (!line || !game)
-		return (0);
 	game->rows++;
 	temp = (char **)malloc((game->rows + 1) * sizeof(char *));
 	if (!temp)
@@ -53,8 +49,6 @@ int	map_reading(t_map *game, char *map_file)
 {
 	char	*line;
 
-	if (!game || !map_file)
-		return (0);
 	game->fd = open(map_file, O_RDONLY);
 	if (game->fd < 0) 
 		return (error("Failure to open the map file.\n"));

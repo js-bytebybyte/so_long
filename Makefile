@@ -6,7 +6,7 @@
 #    By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 14:19:41 by jsteenpu          #+#    #+#              #
-#    Updated: 2023/08/31 11:10:43 by jsteenpu         ###   ########.fr        #
+#    Updated: 2023/08/31 16:01:08 by jsteenpu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,9 @@ LINKS = -Lmlx -lmlx -framework OpenGL -framework Appkit
 
 # Directories
 GAME_DIR = game
-FT_PRINTF_DIR = ft_printf
-GNL_DIR = get_next_line
-LIBFT_DIR = libft
+FT_PRINTF_DIR = libs/ft_printf
+GNL_DIR = libs/get_next_line
+LIBFT_DIR = libs/libft
 
 # Source files
 GAME_SRCS = $(wildcard $(GAME_DIR)/*.c)
@@ -39,7 +39,7 @@ LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(GAME_OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(LIBFT_OBJS)
+$(NAME): $(GAME_OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(LIBFT_OBJS) 
 	$(CC) $(CFLAGS) $(LINKS) -o $@ $^
 
 $(GAME_DIR)/%.o: $(GAME_DIR)/%.c
@@ -55,7 +55,7 @@ $(LIBFT_DIR)/%.o: $(LIBFT_DIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(GAME_OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(LIBFT_OBJS)
+	rm -f $(GAME_OBJS) $(FT_PRINTF_OBJS) $(GNL_OBJS) $(LIBFT_OBJS) 
 
 fclean: clean
 	rm -f $(NAME)

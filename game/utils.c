@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:22:09 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/31 11:14:51 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:12:57 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	ft_free_array(char	**array)
 
 int	terminate_game(t_map *game)
 {
-	if (!game)
-		return (0);
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	free(game->mlx_ptr);
@@ -47,5 +45,6 @@ int	terminate_game(t_map *game)
 		ft_free_array(game->map);
 	if (game->flood_grid)
 		ft_free_array(game->flood_grid);
-	exit(0);
+	exit(EXIT_SUCCESS);
 }
+

@@ -6,11 +6,11 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 14:21:39 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/05/09 14:30:16 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:51:27 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/libft.h"
+#include "../../headers/libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {
