@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:22:09 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/31 15:12:57 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:09:22 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,3 @@ int	terminate_game(t_map *game)
 		ft_free_array(game->flood_grid);
 	exit(EXIT_SUCCESS);
 }
-
