@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:22:09 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/31 16:09:22 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/09/01 10:36:40 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ int	terminate_game(t_map *game)
 	if (game->win_ptr)
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	free(game->mlx_ptr);
-	if (game->map)
-		ft_free_array(game->map);
-	if (game->flood_grid)
-		ft_free_array(game->flood_grid);
+	ft_free_array(game->map);
+	ft_free_array(game->flood_grid);
 	exit(EXIT_SUCCESS);
 }

@@ -6,13 +6,12 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 12:48:47 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/31 15:38:33 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:26:08 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-// displays the images in the correct position according to map
 void	display_graphics(t_map *game)
 {
 	int	y;

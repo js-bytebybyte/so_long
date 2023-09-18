@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 09:38:36 by jolandestee       #+#    #+#             */
-/*   Updated: 2023/08/31 15:15:37 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/09/01 09:49:45 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,16 @@ static int	move(t_map *game, int dy, int dx)
 		if (game->collectibles == 0)
 			terminate_game(game);
 	}
+	if (target_tile == '1')
+		return (0);
 	return (1);
 }
 
 int	key_controls(int keycode, t_map *game)
 {
+	int	moved;
+
+	moved = game->moves;
 	if (keycode == ESC_KEY)
 		terminate_game(game);
 	if (keycode == UP_KEY || keycode == 126)
@@ -49,6 +54,7 @@ int	key_controls(int keycode, t_map *game)
 		game->moves += move(game, 0, 1);
 	init_background(game);
 	display_graphics(game);
-	ft_printf("moves: %d\n", game->moves);
+	if (game->moves != moved)
+		ft_printf("moves: %d\n", game->moves);
 	return (0);
 }

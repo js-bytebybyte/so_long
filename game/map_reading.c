@@ -6,7 +6,7 @@
 /*   By: jsteenpu <jsteenpu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:55:02 by jsteenpu          #+#    #+#             */
-/*   Updated: 2023/08/31 15:15:16 by jsteenpu         ###   ########.fr       */
+/*   Updated: 2023/09/01 11:07:07 by jsteenpu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	map_reading(t_map *game, char *map_file)
 		line = get_next_line(game->fd);
 	}
 	if (!line && !game->map)
+		return (0);
+	if (!game->map)
 		return (0);
 	close(game->fd);
 	game->columns = count_columns(game->map[0]);
